@@ -92,6 +92,10 @@ from torch.nn import functional as F
 use_cuda = torch.cuda.is_available()
 
 def gData(data):
+    # Added
+    if data == None:
+        return data
+
     tensor=data
     if isinstance(data, np.ndarray):
         tensor = torch.from_numpy(data)

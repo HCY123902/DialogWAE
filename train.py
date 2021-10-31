@@ -56,6 +56,7 @@ parser.add_argument('--expname', type=str, default='basic', help='experiment nam
 parser.add_argument('--visual', action='store_true', default=False, help='visualize training status in tensorboard')
 parser.add_argument('--reload_from', type=int, default=-1, help='reload from a trained ephoch')
 parser.add_argument('--gpu_id', type=int, default=0, help='GPU ID')
+parser.add_argument('--anchor', type=int, default=1, help='Adopt anchor')
 
 # Evaluation Arguments
 parser.add_argument('--sample', action='store_true', help='sample when decoding for generation')
@@ -115,11 +116,19 @@ config = getattr(configs, 'config_'+args.model)()
 ###############################################################################
 data_path=args.data_path+args.dataset+'/'
 #
-corpus = getattr(data, args.dataset+'Corpus')(data_path, wordvec_path=args.data_path+'glove.twitter.27B.200d.txt', wordvec_dim=config['emb_size'])
+corpus = getattr(data, args.dataset+'Corpus')(data_path, wordvec_path=args.data_path+'glove.twitter.27B.200d.txt', wordvec_dim=config['emb_size'], anchor = args.anchor)
 dials = corpus.get_dialogs()
 metas = corpus.get_metas()
+
+# Added
+# anchors = corpus.get_anchors()
+
 train_dial, valid_dial, test_dial = dials.get("train"), dials.get("valid"), dials.get("test")
 train_meta, valid_meta, test_meta = metas.get("train"), metas.get("valid"), metas.get("test")
+
+# Added
+# train_anchor, valid_anchor, test_anchor = anchors.get("train"), anchors.get("valid"), anchors.get("test")
+
 train_loader = getattr(data, args.dataset+'DataLoader')("Train", train_dial, train_meta, config['maxlen'])
 valid_loader = getattr(data, args.dataset+'DataLoader')("Valid", valid_dial, valid_meta, config['maxlen'])
 test_loader = getattr(data, args.dataset+'DataLoader')("Test", test_dial, test_meta, config['maxlen'])
@@ -168,12 +177,12 @@ for epoch in range(start_epoch, config['epochs']+1):
         batch = train_loader.next_batch()
         if batch is None: # end of epoch
             break
-        context, context_lens, utt_lens, floors,_,_,_,response,res_lens,_ = batch
+        context, context_lens, utt_lens, floors,_,_,_,response,res_lens,_, anchor = batch
         context, utt_lens = context[:,:,1:], utt_lens-1 # remove the sos token in the context and reduce the context length
-        context, context_lens, utt_lens, floors, response, res_lens\
-                = gVar(context), gVar(context_lens), gVar(utt_lens), gData(floors), gVar(response), gVar(res_lens)
+        context, context_lens, utt_lens, floors, response, res_lens, anchor\
+                = gVar(context), gVar(context_lens), gVar(utt_lens), gData(floors), gVar(response), gVar(res_lens), gVar(anchor)
             
-        loss_AE = model.train_AE(context, context_lens, utt_lens, floors, response, res_lens)
+        loss_AE = model.train_AE(context, context_lens, utt_lens, floors, response, res_lens, anchor=anchor)
         loss_records.extend(loss_AE)
 
         loss_G = model.train_G(context, context_lens, utt_lens, floors, response, res_lens)

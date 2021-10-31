@@ -129,10 +129,10 @@ class DialogWAE(nn.Module):
         z = self.prior_generator(e)
         return z    
     
-    def train_AE(self, context, context_lens, utt_lens, floors, response, res_lens):
+    def train_AE(self, context, context_lens, utt_lens, floors, response, res_lens, anchor=None):
         self.context_encoder.train()
         self.decoder.train()
-        c = self.context_encoder(context, context_lens, utt_lens, floors)
+        c = self.context_encoder(context, context_lens, utt_lens, floors, anchor=anchor)
         x,_ = self.utt_encoder(response[:,1:], res_lens-1)      
         z = self.sample_code_post(x, c)
         output = self.decoder(torch.cat((z, c),1), None, response[:,:-1], (res_lens-1))  
@@ -238,11 +238,12 @@ class DialogWAE(nn.Module):
         lossAE = self.criterion_ce(masked_output/self.temp, masked_target)
         return [('valid_loss_AE', lossAE.item()),('valid_loss_G', costG.item()), ('valid_loss_D', costD.item())]
         
-    def sample(self, context, context_lens, utt_lens, floors, repeat, SOS_tok, EOS_tok):    
+    def sample(self, context, context_lens, utt_lens, floors, repeat, SOS_tok, EOS_tok, anchor=None):    
         self.context_encoder.eval()
         self.decoder.eval()
         
-        c = self.context_encoder(context, context_lens, utt_lens, floors)
+        # Modified
+        c = self.context_encoder(context, context_lens, utt_lens, floors, anchor=anchor)
         c_repeated = c.expand(repeat, -1)
         prior_z = self.sample_code_prior(c_repeated)    
         sample_words, sample_lens= self.decoder.sampling(torch.cat((prior_z,c_repeated),1), 

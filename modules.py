@@ -203,7 +203,7 @@ class ContextEncoder(nn.Module):
         self.grad_norm = norm.detach().data.mean()
         return grad
 
-    def forward(self, context, context_lens, utt_lens, floors, noise=False): 
+    def forward(self, context, context_lens, utt_lens, floors, noise=False, anchor=None): 
         batch_size, max_context_len, max_utt_len = context.size()
         utts=context.view(-1, max_utt_len) 
         utt_lens=utt_lens.view(-1)
@@ -276,7 +276,7 @@ class ContextEncoder(nn.Module):
         # print("aij size", aij.size())
         # print("sij size", sij.size())
         # print("context length", max_context_len)
-        
+
         wij = aij * sij
         # Excludes later utterances and empty utterances
         # wij = wij.tril(diagonal=-1)
@@ -285,11 +285,14 @@ class ContextEncoder(nn.Module):
 
         for dialog in range(batch_size):
             # To be adjusted. Adjust floor to the previous conversation index
-            anchor = int(context_lens[dialog] - 1)
+            # anchor = int(context_lens[dialog] - 1)
+            current_anchor = int(context_lens[dialog] - 1) if anchor == None else int(anchor[dialog])
+            if current_anchor < 0 or current_anchor > int(context_lens[dialog] - 1):
+                current_anchor = int(context_lens[dialog] - 1)
 
-            if anchor <= 0:
+            if current_anchor <= 0:
                 # The first utterance will not be adjusted with message
-                enc.append(utt_encs[dialog, anchor, :self.hidden_size] + utt_encs[dialog, anchor, self.hidden_size:])
+                enc.append(utt_encs[dialog, current_anchor, :self.hidden_size] + utt_encs[dialog, current_anchor, self.hidden_size:])
                 continue
 
                     # h_z = hidden_node_states[s][:, :, z]
@@ -309,15 +312,15 @@ class ContextEncoder(nn.Module):
             
             # Excludes later utterances and empty utterances
             # mask = wij[dialog, anchor, :context_lens[dialog]].ne(0)
-            masked_weight = F.softmax(wij[dialog, anchor, :anchor], dim=0)
+            masked_weight = F.softmax(wij[dialog, current_anchor, :current_anchor], dim=0)
             # anchor, hidden_size * 2
-            weighted_utts = masked_weight.unsqueeze(1).expand(anchor, (self.hidden_size * 2)) * utt_encs[dialog, :anchor, :] 
+            weighted_utts = masked_weight.unsqueeze(1).expand(current_anchor, (self.hidden_size * 2)) * utt_encs[dialog, :current_anchor, :] 
             # hidden_size * 2
             message = torch.sum(weighted_utts, dim=0)
             # 1, 1, hidden_size * 2
             message = message.unsqueeze(0).unsqueeze(0)
 
-            initial_hidden = utt_encs[dialog, anchor, :self.hidden_size] + utt_encs[dialog, anchor, self.hidden_size:]
+            initial_hidden = utt_encs[dialog, current_anchor, :self.hidden_size] + utt_encs[dialog, current_anchor, self.hidden_size:]
             # 1, 1, hidden_size 
             initial_hidden = initial_hidden.unsqueeze(0).unsqueeze(0)
             his, h_n = self.update_hidden_state(message, initial_hidden)

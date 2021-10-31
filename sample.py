@@ -58,7 +58,7 @@ def evaluate(model, metrics, test_loader, vocab, ivocab, f_eval, repeat):
         if batch is None:
             break
         local_t += 1 
-        context, context_lens, utt_lens, floors,_,_,_,response,res_lens,_ = batch   
+        context, context_lens, utt_lens, floors,_,_,_,response,res_lens,_, anchor = batch   
         context, utt_lens = context[:,:,1:], utt_lens-1 # remove the sos token in the context and reduce the context length
         f_eval.write("Batch %d \n" % (local_t))# print the context
         start = np.maximum(0, context_lens[0]-5)
@@ -70,8 +70,8 @@ def evaluate(model, metrics, test_loader, vocab, ivocab, f_eval, repeat):
         ref_tokens = ref_str.split(' ')
         f_eval.write("Target >> %s\n" % (ref_str.replace(" ' ", "'")))
         
-        context, context_lens, utt_lens, floors = gVar(context), gVar(context_lens), gVar(utt_lens), gData(floors)
-        sample_words, sample_lens = model.sample(context, context_lens, utt_lens, floors, repeat, vocab["<s>"], vocab["</s>"])
+        context, context_lens, utt_lens, floors, anchor = gVar(context), gVar(context_lens), gVar(utt_lens), gData(floors), gVar(anchor)
+        sample_words, sample_lens = model.sample(context, context_lens, utt_lens, floors, repeat, vocab["<s>"], vocab["</s>"], anchor=anchor)
         # nparray: [repeat x seq_len]
         pred_sents, _ = indexes2sent(sample_words, vocab, vocab["</s>"], PAD_token)
         pred_tokens = [sent.split(' ') for sent in pred_sents]

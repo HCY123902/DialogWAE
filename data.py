@@ -12,7 +12,7 @@ class SWDACorpus(object):
     sentiment_id = 1
     liwc_id = 2
 
-    def __init__(self, path, vocab_size=10000, wordvec_path=None, wordvec_dim=None):
+    def __init__(self, path, vocab_size=10000, wordvec_path=None, wordvec_dim=None, anchor=1):
         """
         :param path: the folder that contains the SWDA dialog corpus
         """
@@ -328,7 +328,7 @@ class SWDADataLoader(object):
 class DailyDialCorpus(object):
     dialog_act_id = 0
 
-    def __init__(self, path, vocab_size=10000, wordvec_path=None, wordvec_dim=None):
+    def __init__(self, path, vocab_size=10000, wordvec_path=None, wordvec_dim=None, anchor=1):
         """
         :param path: the folder that contains the SWDA dialog corpus
         """
@@ -344,6 +344,8 @@ class DailyDialCorpus(object):
         self.valid_corpus = self.process(valid_data)
         self.test_corpus = self.process(test_data)
         
+        self.anchor = anchor
+
         self.build_vocab(vocab_size)
         self.load_word2vec(wordvec_path)
         print("Done loading corpus")
@@ -353,19 +355,39 @@ class DailyDialCorpus(object):
         """ 1 is own utt and 0 is other's utt"""
         new_dialog = []
         new_utts = []
+
+        # Added
+        # new_anchor = []
+
         bod_utt = ["<s>", "<d>", "</s>"] # indicator of a start of a dialog
         all_lenes = []
 
-        for l in data:        
-            lower_utts = [["<s>"] + nltk.WordPunctTokenizer().tokenize(utt.lower()) + ["</s>"]
-                          for utt in l.split('__eou__')[:-1]]
+        for l in data:
+            # Modified with anchor
+            if self.anchor == 1:
+
+                lower_utts = [["<s>"] + nltk.WordPunctTokenizer().tokenize((utt.split(" ", 1)[1]).lower()) + ["</s>"]
+                            for utt in l.split('__eou__')[:-1]]
+
+                # Include bod_utt
+                anchors = [0] + [int(utt.split(" ", 1)[0]) + 1 for utt in l.split("__eou__")[:-1]]
+
+                for i, anchor in enumerate(anchors):
+                    if anchor == -1:
+                        anchors[i] = 0 if i == 0 else i - 1
+                # new_anchor.append(anchors)
+            else:
+                lower_utts = [["<s>"] + nltk.WordPunctTokenizer().tokenize(utt.lower()) + ["</s>"]
+                        for utt in l.split('__eou__')[:-1]]
+                anchors = [i for i in range(len(lower_utts) + 1)]
+
             all_lenes.extend([len(u) for u in lower_utts])
             
             dialog = [(bod_utt, 0)]
             floor = 1
-            for utt in lower_utts:
+            for i, utt in enumerate(lower_utts):
                 floor = floor+1
-                dialog = dialog + [(utt, int(floor%2==0))]
+                dialog = dialog + [(utt, int(floor%2==0), anchors[i + 1])]
             new_utts.extend([bod_utt] + [utt for utt in lower_utts])
             new_dialog.append(dialog)
 
@@ -444,9 +466,15 @@ class DailyDialCorpus(object):
         id_valid = _to_id_corpus(self.valid_corpus[0])
         id_test = _to_id_corpus(self.test_corpus[0])
         return {'train': id_train, 'valid': id_valid, 'test': id_test}
+    
+    # Added
+    # def get_anchors(self):
+    #     if self.anchor == 1:
+    #         return {'train': self.train_corpus[2], 'valid': self.valid_corpus[2], 'test': self.test_corpus[2]}
+    #     return {'train': None, 'valid': None, 'test': None}
+
     def get_metas(self):
         return {'train': None, 'valid': None, 'test': None}
-
     
 
 # Data feed
@@ -460,6 +488,9 @@ class DailyDialDataLoader(object):
         self.batch_indexes = None
         self.grid_indexes = None
         self.prev_alive_size = 0
+
+        # Added
+        self.anchor = anchor
 
         self.name = name
         self.data = data
@@ -553,15 +584,20 @@ class DailyDialDataLoader(object):
 
         # input_context, context_lens, floors, topics, a_profiles, b_Profiles, outputs, output_lens
         context_utts, context_lens,utt_lens,floors, out_utts,out_lens,out_floors,out_das = [],[],[],[],[],[],[],[]
+
+        # Added
+        anchors = []
+
         for row in rows:
             if s_id < len(row)-1:
                 cut_row = row[s_id:e_id]
                 in_row = cut_row[0:-1]
                 out_row = cut_row[-1]
-                out_utt, out_floor = out_row
+                out_utt, out_floor, out_anchor = out_row
                 
-                context_utts.append([self.pad_to(utt) for utt, floor in in_row])
-                utt_lens.append([min(len(utt),self.max_utt_size) for utt, floor in in_row])
+                # Modified
+                context_utts.append([self.pad_to(utt) for utt, floor, anchor in in_row])
+                utt_lens.append([min(len(utt),self.max_utt_size) for utt, floor, anchor in in_row])
                 context_lens.append(len(cut_row) - 1)
                 floors.append([int(floor==out_floor) for utt, floor in in_row])
 
@@ -569,6 +605,9 @@ class DailyDialDataLoader(object):
                 out_utts.append(out_utt)
                 out_lens.append(len(out_utt))
                 out_floors.append(out_floor)
+
+                # Substracted with s_id
+                anchors.append(out_anchor - s_id if out_anchor - s_id >= 0 else len(in_row) - 1)
             else:
                 print(row)
                 raise ValueError("S_ID %d larger than row" % s_id)
@@ -581,6 +620,8 @@ class DailyDialDataLoader(object):
         vec_outs = np.zeros((self.batch_size, np.max(out_lens)), dtype=np.int64)
         vec_out_lens = np.array(out_lens, dtype=np.int64)
 
+        vec_out_anchor = np.array(anchors, dtype=np.int64)
+
         for b_id in range(self.batch_size):
             vec_outs[b_id, 0:vec_out_lens[b_id]] = out_utts[b_id]
             vec_floors[b_id, 0:vec_context_lens[b_id]] = floors[b_id]
@@ -588,7 +629,7 @@ class DailyDialDataLoader(object):
             vec_utt_lens[b_id, 0:vec_context_lens[b_id]] = utt_lens[b_id]
 
         return vec_context, vec_context_lens, vec_utt_lens, vec_floors, None, \
-               None, None, vec_outs, vec_out_lens, None
+               None, None, vec_outs, vec_out_lens, None, vec_out_anchor
         
         
         

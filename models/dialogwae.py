@@ -129,7 +129,7 @@ class DialogWAE(nn.Module):
         z = self.prior_generator(e)
         return z    
     
-    def train_AE(self, context, context_lens, utt_lens, floors, response, res_lens, anchor=None):
+    def train_AE(self, context, context_lens, utt_lens, floors, response, res_lens, anchor=torch.tensor([])):
         self.context_encoder.train()
         self.decoder.train()
         c = self.context_encoder(context, context_lens, utt_lens, floors, anchor=anchor)
@@ -153,14 +153,14 @@ class DialogWAE(nn.Module):
 
         return [('train_loss_AE', loss.item())]        
     
-    def train_G(self, context, context_lens, utt_lens, floors, response, res_lens): 
+    def train_G(self, context, context_lens, utt_lens, floors, response, res_lens, anchor=torch.tensor([])): 
         self.context_encoder.eval()
         self.optimizer_G.zero_grad()
         
         for p in self.discriminator.parameters():
             p.requires_grad = False  
         
-        c = self.context_encoder(context, context_lens, utt_lens, floors)
+        c = self.context_encoder(context, context_lens, utt_lens, floors, anchor=anchor)
         # -----------------posterior samples ---------------------------
         x,_ = self.utt_encoder(response[:,1:], res_lens-1)
         z_post= self.sample_code_post(x.detach(), c.detach())
@@ -180,7 +180,7 @@ class DialogWAE(nn.Module):
         costG = errG_prior - errG_post
         return [('train_loss_G', costG.item())]
     
-    def train_D(self, context, context_lens, utt_lens, floors, response, res_lens):
+    def train_D(self, context, context_lens, utt_lens, floors, response, res_lens, anchor=torch.tensor([])):
         self.context_encoder.eval()
         self.discriminator.train()
         
@@ -188,7 +188,7 @@ class DialogWAE(nn.Module):
         
         batch_size=context.size(0)
 
-        c = self.context_encoder(context, context_lens, utt_lens, floors)
+        c = self.context_encoder(context, context_lens, utt_lens, floors, anchor=anchor)
         x,_ = self.utt_encoder(response[:,1:], res_lens-1)
         post_z = self.sample_code_post(x, c)
         errD_post = torch.mean(self.discriminator(torch.cat((post_z.detach(), c.detach()),1)))

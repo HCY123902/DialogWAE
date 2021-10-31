@@ -232,7 +232,7 @@ class ContextEncoder(nn.Module):
         # Compute mij
         # batch_size, max_context_len, max_context_len, 2 * hidden_size
         utt_encs_i = utt_encs.unsqueeze(2).repeat(1, 1, max_context_len, 1)
-        utt_encs_j = gVar(torch.zeros(batch_size, max_context_len, max_context_len, max_utt_len))
+        utt_encs_j = gVar(torch.zeros(batch_size, max_context_len, max_context_len, self.hidden_size * 2))
         for i in range(max_context_len):
             utt_encs_j[:, i, :, :] = utt_encs.clone()
 

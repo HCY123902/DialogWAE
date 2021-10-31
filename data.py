@@ -490,7 +490,7 @@ class DailyDialDataLoader(object):
         self.prev_alive_size = 0
 
         # Added
-        self.anchor = anchor
+        # self.anchor = anchor
 
         self.name = name
         self.data = data

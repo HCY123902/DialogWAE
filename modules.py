@@ -272,6 +272,11 @@ class ContextEncoder(nn.Module):
         sij = sij_epsilon * sij_std + sij_mean
 
         # Compute weight, sij can be negative, wij can be negative
+
+        # print("aij size", aij.size())
+        # print("sij size", sij.size())
+        # print("context length", max_context_len)
+        
         wij = aij * sij
         # Excludes later utterances and empty utterances
         # wij = wij.tril(diagonal=-1)

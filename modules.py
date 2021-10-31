@@ -282,6 +282,11 @@ class ContextEncoder(nn.Module):
             # To be adjusted. Adjust floor to the previous conversation index
             anchor = int(context_lens[dialog] - 1)
 
+            if anchor <= 0:
+                # The first utterance will not be adjusted with message
+                enc.append(utt_encs[dialog, anchor, :self.hidden_size] + utt_encs[dialog, anchor, self.hidden_size:])
+                continue
+
                     # h_z = hidden_node_states[s][:, :, z]
                     # h_v = hidden_node_states[s]
 

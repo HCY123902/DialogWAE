@@ -93,8 +93,8 @@ use_cuda = torch.cuda.is_available()
 
 def gData(data):
     # Added
-    if data == None:
-        return data
+    # if data == None:
+    #     return data
 
     tensor=data
     if isinstance(data, np.ndarray):

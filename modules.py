@@ -203,7 +203,7 @@ class ContextEncoder(nn.Module):
         self.grad_norm = norm.detach().data.mean()
         return grad
 
-    def forward(self, context, context_lens, utt_lens, floors, noise=False, anchor=None): 
+    def forward(self, context, context_lens, utt_lens, floors, noise=False, anchor=torch.tensor([])): 
         batch_size, max_context_len, max_utt_len = context.size()
         utts=context.view(-1, max_utt_len) 
         utt_lens=utt_lens.view(-1)
@@ -286,7 +286,7 @@ class ContextEncoder(nn.Module):
         for dialog in range(batch_size):
             # To be adjusted. Adjust floor to the previous conversation index
             # anchor = int(context_lens[dialog] - 1)
-            current_anchor = int(context_lens[dialog] - 1) if anchor == None else int(anchor[dialog])
+            current_anchor = int(context_lens[dialog] - 1) if anchor.size()[0] == 0 else int(anchor[dialog])
             if current_anchor < 0 or current_anchor > int(context_lens[dialog] - 1):
                 current_anchor = int(context_lens[dialog] - 1)
 

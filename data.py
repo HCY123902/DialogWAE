@@ -458,8 +458,8 @@ class DailyDialCorpus(object):
             for dialog in data:
                 temp = []
                 # convert utterance and feature into numeric numbers
-                for utt, floor in dialog:
-                    temp.append(([self.ivocab.get(t, self.unk_id) for t in utt], floor))
+                for utt, floor, anchor in dialog:
+                    temp.append(([self.ivocab.get(t, self.unk_id) for t in utt], floor, anchor))
                 results.append(temp)
             return results
         id_train = _to_id_corpus(self.train_corpus[0])

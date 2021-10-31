@@ -383,7 +383,7 @@ class DailyDialCorpus(object):
 
             all_lenes.extend([len(u) for u in lower_utts])
             
-            dialog = [(bod_utt, 0)]
+            dialog = [(bod_utt, 0, anchor[0])]
             floor = 1
             for i, utt in enumerate(lower_utts):
                 floor = floor+1

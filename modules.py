@@ -280,7 +280,7 @@ class ContextEncoder(nn.Module):
 
         for dialog in range(batch_size):
             # To be adjusted. Adjust floor to the previous conversation index
-            anchor = context_lens[dialog] - 1
+            anchor = int(context_lens[dialog] - 1)
 
                     # h_z = hidden_node_states[s][:, :, z]
                     # h_v = hidden_node_states[s]

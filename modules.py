@@ -128,6 +128,7 @@ class ContextEncoder(nn.Module):
                     nn.Linear(hidden_size, 1),
                 )
             )
+            self.mlp_aij_mij[i - 1].apply(self.init_weights_squential)
 
         # self.mlp_aij_mij = nn.Sequential(
         #     # batch_size, max_context_len, max_context_len, hidden_size * 4 -> batch_size, max_context_len, max_context_len, hidden_size
@@ -141,14 +142,15 @@ class ContextEncoder(nn.Module):
         #     nn.Linear(hidden_size, 1),
         # )
 
-        self.mlp_aij_mij.apply(self.init_weights_squential)
+        # self.mlp_aij_mij.apply(self.init_weights_squential)
+
         # Added to softplus
         self.e = 0.01
 
-        self.mij_sij = torch.nn.ModuleList([])
+        self.mlp_sij = torch.nn.ModuleList([])
 
         for i in range(1, dia_len + 1):
-            self.mij_sij.append(
+            self.mlp_sij.append(
                 nn.Sequential(
                     # batch_size, max_context_len, max_context_len, hidden_size * 4 -> batch_size, max_context_len, max_context_len, hidden_size
                     nn.Linear((input_size - 2) * 2, hidden_size),
@@ -159,6 +161,7 @@ class ContextEncoder(nn.Module):
                     nn.Tanh(),
                 )
             )
+            self.mlp_sij[i - 1].apply(self.init_weights_squential)
 
         # self.mlp_sij = nn.Sequential(
         #     # batch_size, max_context_len, max_context_len, hidden_size * 4 -> batch_size, max_context_len, max_context_len, hidden_size
@@ -172,8 +175,6 @@ class ContextEncoder(nn.Module):
 
         self.convert_to_mu = nn.Linear(hidden_size, 1)
         self.convert_to_sigma = nn.Linear(hidden_size, 1)
-
-        self.mlp_sij.apply(self.init_weights_squential)
 
         self.init_weights_squential(self.convert_to_mu)
         self.init_weights_squential(self.convert_to_sigma)

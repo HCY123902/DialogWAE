@@ -599,7 +599,7 @@ class DailyDialDataLoader(object):
                 context_utts.append([self.pad_to(utt) for utt, floor, anchor in in_row])
                 utt_lens.append([min(len(utt),self.max_utt_size) for utt, floor, anchor in in_row])
                 context_lens.append(len(cut_row) - 1)
-                floors.append([int(floor==out_floor) for utt, floor in in_row])
+                floors.append([int(floor==out_floor) for utt, floor, anchor in in_row])
 
                 out_utt = self.pad_to(out_utt, do_pad=False)
                 out_utts.append(out_utt)

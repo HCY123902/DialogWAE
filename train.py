@@ -29,6 +29,10 @@ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 """
+import os
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
+
 import argparse
 import time
 from datetime import datetime
@@ -37,7 +41,7 @@ import random
 import json
 import logging
 import torch
-import os, sys
+import sys
 parentPath = os.path.abspath("..")
 sys.path.insert(0, parentPath)# add parent folder to path so as to import common modules
 from helper import timeSince, sent2indexes, indexes2sent, gData, gVar

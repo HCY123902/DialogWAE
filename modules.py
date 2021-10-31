@@ -108,12 +108,62 @@ class ContextEncoder(nn.Module):
         
         self.utt_encoder=utt_encoder
         self.rnn = nn.GRU(input_size, hidden_size, batch_first=True)
-        self.init_weights()
         
+
+        # Added
+
+        self.mlp_aij_mij = nn.Sequential(
+            # batch_size, max_context_len, max_context_len, hidden_size * 4 -> batch_size, max_context_len, max_context_len, hidden_size
+            nn.Linear((input_size - 2) * 2, hidden_size),
+            nn.BatchNorm1d(hidden_size, eps=1e-05, momentum=0.1),
+            nn.ReLU(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.BatchNorm1d(hidden_size, eps=1e-05, momentum=0.1),
+            nn.ReLU(),
+            # batch_size, max_context_len, max_context_len, hidden_size -> batch_size, max_context_len, max_context_len, 1
+            nn.Linear(hidden_size, 1),
+        )
+
+        self.mlp_aij_mij.apply(self.init_weights_squential)
+        # Added to softplus
+        self.e = 0.01
+
+        self.mlp_sij = nn.Sequential(
+            # batch_size, max_context_len, max_context_len, hidden_size * 4 -> batch_size, max_context_len, max_context_len, hidden_size
+            nn.Linear((input_size - 2) * 2, hidden_size),
+            nn.BatchNorm1d(hidden_size, eps=1e-05, momentum=0.1),
+            nn.Tanh(),
+            nn.Linear(hidden_size, hidden_size),
+            nn.BatchNorm1d(hidden_size, eps=1e-05, momentum=0.1),
+            nn.Tanh(),
+        )
+
+        self.convert_to_mu = nn.Linear(hidden_size, 1)
+        self.convert_to_sigma = nn.Linear(hidden_size, 1)
+
+        self.mlp_sij.apply(self.init_weights_squential)
+
+        self.init_weights_squential(self.convert_to_mu)
+        self.init_weights_squential(self.convert_to_sigma)
+
+        self.update_hidden_state = nn.GRU(hidden_size * 2, hidden_size, batch_first=True)
+        
+        self.init_weights()
+
     def init_weights(self):
         for w in self.rnn.parameters(): # initialize the gate weights with orthogonal
             if w.dim()>1:
                 weight_init.orthogonal_(w)
+        
+        # Added
+        for w in self.update_hidden_state.parameters(): # initialize the gate weights with orthogonal
+            if w.dim()>1:
+                weight_init.orthogonal_(w)
+    
+    def init_weights_squential(self, m):
+        if isinstance(m, nn.Linear):        
+            m.weight.data.uniform_(-0.02, 0.02)
+            m.bias.data.fill_(0)
     
     def store_grad_norm(self, grad):
         norm = torch.norm(grad, 2, 1)
@@ -127,23 +177,110 @@ class ContextEncoder(nn.Module):
         utt_encs,_ = self.utt_encoder(utts, utt_lens) 
         utt_encs = utt_encs.view(batch_size, max_context_len, -1)
 
-        floor_one_hot = gVar(torch.zeros(floors.numel(), 2))
-        floor_one_hot.data.scatter_(1, floors.view(-1, 1), 1)
-        floor_one_hot = floor_one_hot.view(-1, max_context_len, 2)
-        utt_floor_encs = torch.cat([utt_encs, floor_one_hot], 2) 
+        # floor_one_hot = gVar(torch.zeros(floors.numel(), 2))
+        # floor_one_hot.data.scatter_(1, floors.view(-1, 1), 1)
+        # floor_one_hot = floor_one_hot.view(-1, max_context_len, 2)
+        # utt_floor_encs = torch.cat([utt_encs, floor_one_hot], 2) 
         
-        utt_floor_encs=F.dropout(utt_floor_encs, 0.25, self.training)
-        context_lens_sorted, indices = context_lens.sort(descending=True)
-        utt_floor_encs = utt_floor_encs.index_select(0, indices)
-        utt_floor_encs = pack_padded_sequence(utt_floor_encs, context_lens_sorted.data.tolist(), batch_first=True)
+        # utt_floor_encs=F.dropout(utt_floor_encs, 0.25, self.training)
+        # context_lens_sorted, indices = context_lens.sort(descending=True)
+        # utt_floor_encs = utt_floor_encs.index_select(0, indices)
+        # utt_floor_encs = pack_padded_sequence(utt_floor_encs, context_lens_sorted.data.tolist(), batch_first=True)
         
-        init_hidden=gVar(torch.zeros(1, batch_size, self.hidden_size))
-        hids, h_n = self.rnn(utt_floor_encs, init_hidden)
+        # init_hidden=gVar(torch.zeros(1, batch_size, self.hidden_size))
+        # hids, h_n = self.rnn(utt_floor_encs, init_hidden)
         
-        _, inv_indices = indices.sort()
-        h_n = h_n.index_select(1, inv_indices)  
+        # _, inv_indices = indices.sort()
+        # h_n = h_n.index_select(1, inv_indices)  
         
-        enc = h_n.transpose(1,0).contiguous().view(batch_size, -1)
+        # enc = h_n.transpose(1,0).contiguous().view(batch_size, -1)
+
+        # Adopt message passing
+        # Compute mij
+        # batch_size, max_context_len, max_context_len, 2 * hidden_size
+        utt_encs_i = utt_encs.unsqueeze(2).repeat(1, 1, max_context_len, 1)
+        utt_encs_j = gVar(torch.zeros(batch_size, max_context_len, max_context_len, max_utt_len))
+        for i in range(max_context_len):
+            utt_encs_j[:, i, :, :] = utt_encs.clone()
+
+        # batch_size, max_context_len, max_context_len, 4 * hidden_size
+        utt_encs_ij = torch.cat([utt_encs_i, utt_encs_j], 3)
+        aij_mij = self.mlp_aij_mij(utt_encs_ij)
+
+        # Compute mij(1 - mij)
+        # batch_size, max_context_len, max_context_len, 1 -> batch_size, max_context_len, max_context_len
+        aij_mij = aij_mij.squeeze(3)
+
+        aij_mu = F.softplus(aij_mij) + self.e
+
+        aij_1minusmij_positive = F.softplus((1 - aij_mu) * aij_mu) + self.e
+        aij_std = torch.sqrt(aij_1minusmij_positive)
+
+        # sample weight, aij can be negative at this step
+        aij_epsilon = gVar(torch.randn([batch_size, max_context_len, max_context_len]))
+        aij = F.softplus(aij_epsilon * aij_std + aij_mu) + self.e
+
+        # Compute sij
+        # batch_size, max_context_len, max_context_len, hidden_size
+        sij_latent = self.mlp_sij(utt_encs_ij)
+        # batch_size, max_context_len, max_context_len, 1
+        sij_mu = self.convert_to_mu(sij_latent)
+        sij_mu = sij_mu.squeeze(3)
+        sij_mean = aij * sij_mu
+
+        # batch_size, max_context_len, max_context_len, 1
+        sij_sigma = self.convert_to_sigma(sij_latent)
+        sij_sigma = sij_sigma.squeeze(3)
+
+        # aij is postivie, and therefore the product is positive
+        sij_std = torch.sqrt(aij * sij_sigma * sij_sigma)
+
+        sij_epsilon = gVar(torch.randn([batch_size, max_context_len, max_context_len]))
+        sij = sij_epsilon * sij_std + sij_mean
+
+        # Compute weight, sij can be negative, wij can be negative
+        wij = aij * sij
+        # Excludes later utterances and empty utterances
+        # wij = wij.tril(diagonal=-1)
+
+        enc = []
+
+        for dialog in range(batch_size):
+            # To be adjusted. Adjust floor to the previous conversation index
+            anchor = context_lens[dialog] - 1
+
+                    # h_z = hidden_node_states[s][:, :, z]
+                    # h_v = hidden_node_states[s]
+
+                    # # Sum up messages from different nosdes according to weights
+                    # m_z = softmax_pred_adj_mat[:, z, :].unsqueeze(1).expand_as(h_v) * h_v
+                    # m_z = torch.sum(m_z, dim=2)
+
+                    # # h_z^s = U(h_z^(s-1), m_z^s)
+                    # # Add temporal dimension
+                    # h_z = self.update_fun(h_z.unsqueeze(0).contiguous(), m_z.unsqueeze(0))
+                    # hidden_node_states[s+1][:, :, z] = h_z
+
+                    # if s == self.e_step - 1:
+                    #     pred_node_feats[t+1][:, :, z] = h_z.squeeze(0)
+            
+            # Excludes later utterances and empty utterances
+            # mask = wij[dialog, anchor, :context_lens[dialog]].ne(0)
+            masked_weight = F.softmax(wij[dialog, anchor, :anchor], dim=0)
+            # anchor, hidden_size * 2
+            weighted_utts = masked_weight.unsqueeze(1).expand(anchor, (self.hidden_size * 2)) * utt_encs[dialog, :anchor, :] 
+            # hidden_size * 2
+            message = torch.sum(weighted_utts, dim=0)
+            # 1, 1, hidden_size * 2
+            message = message.unsqueeze(0).unsqueeze(0)
+
+            initial_hidden = utt_encs[dialog, anchor, :self.hidden_size] + utt_encs[dialog, anchor, self.hidden_size:]
+            # 1, 1, hidden_size 
+            initial_hidden = initial_hidden.unsqueeze(0).unsqueeze(0)
+            his, h_n = self.update_hidden_state(message, initial_hidden)
+            enc.append(h_n.squeeze(0))
+
+        enc = torch.stack(enc, dim=0)
 
         if noise and self.noise_radius > 0:
             gauss_noise = gVar(torch.normal(means=torch.zeros(enc.size()),std=self.noise_radius))

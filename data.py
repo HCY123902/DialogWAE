@@ -339,12 +339,12 @@ class DailyDialCorpus(object):
         self.emb_dim = wordvec_dim
         self.word2vec = None
         self.sil_utt = ["<s>", "<sil>", "</s>"]
+
+        self.anchor = anchor
         
         self.train_corpus = self.process(train_data)
         self.valid_corpus = self.process(valid_data)
         self.test_corpus = self.process(test_data)
-        
-        self.anchor = anchor
 
         self.build_vocab(vocab_size)
         self.load_word2vec(wordvec_path)

@@ -59,7 +59,7 @@ class DialogWAE(nn.Module):
         self.embedder= nn.Embedding(vocab_size, config['emb_size'], padding_idx=PAD_token)
         self.utt_encoder = Encoder(self.embedder, config['emb_size'], config['n_hidden'], 
                                    True, config['n_layers'], config['noise_radius']) 
-        self.context_encoder = ContextEncoder(self.utt_encoder, config['n_hidden']*2+2, config['n_hidden'], 1, config['noise_radius']) 
+        self.context_encoder = ContextEncoder(self.utt_encoder, config['n_hidden']*2+2, config['n_hidden'], 1, config['noise_radius'], dia_len=config["dia_len"]) 
         self.prior_net = Variation(config['n_hidden'], config['z_size']) # p(e|c)
         self.post_net = Variation(config['n_hidden']*3, config['z_size']) # q(e|c,x)
         

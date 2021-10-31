@@ -99,7 +99,7 @@ class Encoder(nn.Module):
         return enc, hids
     
 class ContextEncoder(nn.Module):
-    def __init__(self, utt_encoder, input_size, hidden_size, n_layers=1, noise_radius=0.2):
+    def __init__(self, utt_encoder, input_size, hidden_size, n_layers=1, noise_radius=0.2, dia_len=10):
         super(ContextEncoder, self).__init__()
         self.hidden_size = hidden_size
         self.noise_radius=noise_radius
@@ -112,31 +112,63 @@ class ContextEncoder(nn.Module):
 
         # Added
 
-        self.mlp_aij_mij = nn.Sequential(
-            # batch_size, max_context_len, max_context_len, hidden_size * 4 -> batch_size, max_context_len, max_context_len, hidden_size
-            nn.Linear((input_size - 2) * 2, hidden_size),
-            nn.BatchNorm1d(hidden_size, eps=1e-05, momentum=0.1),
-            nn.ReLU(),
-            nn.Linear(hidden_size, hidden_size),
-            nn.BatchNorm1d(hidden_size, eps=1e-05, momentum=0.1),
-            nn.ReLU(),
-            # batch_size, max_context_len, max_context_len, hidden_size -> batch_size, max_context_len, max_context_len, 1
-            nn.Linear(hidden_size, 1),
-        )
+        self.mlp_aij_mij = torch.nn.ModuleList([])
+
+        for i in range(1, dia_len + 1):
+            self.mlp_aij_mij.append(
+                nn.Sequential(
+                    # batch_size, max_contiext_len, max_context_len, hidden_size * 4 -> batch_size, max_context_len, max_context_len, hidden_size
+                    nn.Linear((input_size - 2) * 2, hidden_size),
+                    nn.BatchNorm2d(i, eps=1e-05, momentum=0.1),
+                    nn.ReLU(),
+                    nn.Linear(hidden_size, hidden_size),
+                    nn.BatchNorm2d(i, eps=1e-05, momentum=0.1),
+                    nn.ReLU(),
+                    # batch_size, max_context_len, max_context_len, hidden_size -> batch_size, max_context_len, max_context_len, 1
+                    nn.Linear(hidden_size, 1),
+                )
+            )
+
+        # self.mlp_aij_mij = nn.Sequential(
+        #     # batch_size, max_context_len, max_context_len, hidden_size * 4 -> batch_size, max_context_len, max_context_len, hidden_size
+        #     nn.Linear((input_size - 2) * 2, hidden_size),
+        #     nn.BatchNorm2d(hidden_size, eps=1e-05, momentum=0.1),
+        #     nn.ReLU(),
+        #     nn.Linear(hidden_size, hidden_size),
+        #     nn.BatchNorm2d(hidden_size, eps=1e-05, momentum=0.1),
+        #     nn.ReLU(),
+        #     # batch_size, max_context_len, max_context_len, hidden_size -> batch_size, max_context_len, max_context_len, 1
+        #     nn.Linear(hidden_size, 1),
+        # )
 
         self.mlp_aij_mij.apply(self.init_weights_squential)
         # Added to softplus
         self.e = 0.01
 
-        self.mlp_sij = nn.Sequential(
-            # batch_size, max_context_len, max_context_len, hidden_size * 4 -> batch_size, max_context_len, max_context_len, hidden_size
-            nn.Linear((input_size - 2) * 2, hidden_size),
-            nn.BatchNorm1d(hidden_size, eps=1e-05, momentum=0.1),
-            nn.Tanh(),
-            nn.Linear(hidden_size, hidden_size),
-            nn.BatchNorm1d(hidden_size, eps=1e-05, momentum=0.1),
-            nn.Tanh(),
-        )
+        self.mij_sij = torch.nn.ModuleList([])
+
+        for i in range(1, dia_len + 1):
+            self.mij_sij.append(
+                nn.Sequential(
+                    # batch_size, max_context_len, max_context_len, hidden_size * 4 -> batch_size, max_context_len, max_context_len, hidden_size
+                    nn.Linear((input_size - 2) * 2, hidden_size),
+                    nn.BatchNorm2d(i, eps=1e-05, momentum=0.1),
+                    nn.Tanh(),
+                    nn.Linear(hidden_size, hidden_size),
+                    nn.BatchNorm2d(i, eps=1e-05, momentum=0.1),
+                    nn.Tanh(),
+                )
+            )
+
+        # self.mlp_sij = nn.Sequential(
+        #     # batch_size, max_context_len, max_context_len, hidden_size * 4 -> batch_size, max_context_len, max_context_len, hidden_size
+        #     nn.Linear((input_size - 2) * 2, hidden_size),
+        #     nn.BatchNorm2d(hidden_size, eps=1e-05, momentum=0.1),
+        #     nn.Tanh(),
+        #     nn.Linear(hidden_size, hidden_size),
+        #     nn.BatchNorm2d(hidden_size, eps=1e-05, momentum=0.1),
+        #     nn.Tanh(),
+        # )
 
         self.convert_to_mu = nn.Linear(hidden_size, 1)
         self.convert_to_sigma = nn.Linear(hidden_size, 1)
@@ -205,7 +237,7 @@ class ContextEncoder(nn.Module):
 
         # batch_size, max_context_len, max_context_len, 4 * hidden_size
         utt_encs_ij = torch.cat([utt_encs_i, utt_encs_j], 3)
-        aij_mij = self.mlp_aij_mij(utt_encs_ij)
+        aij_mij = self.mlp_aij_mij[max_context_len - 1](utt_encs_ij)
 
         # Compute mij(1 - mij)
         # batch_size, max_context_len, max_context_len, 1 -> batch_size, max_context_len, max_context_len
@@ -222,7 +254,7 @@ class ContextEncoder(nn.Module):
 
         # Compute sij
         # batch_size, max_context_len, max_context_len, hidden_size
-        sij_latent = self.mlp_sij(utt_encs_ij)
+        sij_latent = self.mlp_sij[max_context_len - 1](utt_encs_ij)
         # batch_size, max_context_len, max_context_len, 1
         sij_mu = self.convert_to_mu(sij_latent)
         sij_mu = sij_mu.squeeze(3)

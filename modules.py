@@ -311,8 +311,9 @@ class ContextEncoder(nn.Module):
             # 1, 1, hidden_size 
             initial_hidden = initial_hidden.unsqueeze(0).unsqueeze(0)
             his, h_n = self.update_hidden_state(message, initial_hidden)
-            enc.append(h_n.squeeze(0))
+            enc.append(h_n.squeeze(0).squeeze(0))
 
+        # batch_size, hidden_size
         enc = torch.stack(enc, dim=0)
 
         if noise and self.noise_radius > 0:

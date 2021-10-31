@@ -370,7 +370,7 @@ class DailyDialCorpus(object):
                             for utt in l.split('__eou__')[:-1]]
 
                 # Include bod_utt
-                anchors = [0] + [int(utt.split(" ", 1)[0]) + 1 for utt in l.split("__eou__")[:-1]]
+                anchors = [0] + [int(utt.strip().split(" ", 1)[0]) + 1 for utt in l.split("__eou__")[:-1]]
 
                 for i, anchor in enumerate(anchors):
                     if anchor == -1:

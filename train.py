@@ -41,6 +41,8 @@ import random
 import json
 import logging
 import torch
+torch.set_num_threads(10)
+
 import sys
 parentPath = os.path.abspath("..")
 sys.path.insert(0, parentPath)# add parent folder to path so as to import common modules

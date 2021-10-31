@@ -238,7 +238,7 @@ class DialogWAE(nn.Module):
         lossAE = self.criterion_ce(masked_output/self.temp, masked_target)
         return [('valid_loss_AE', lossAE.item()),('valid_loss_G', costG.item()), ('valid_loss_D', costD.item())]
         
-    def sample(self, context, context_lens, utt_lens, floors, repeat, SOS_tok, EOS_tok, anchor=None):    
+    def sample(self, context, context_lens, utt_lens, floors, repeat, SOS_tok, EOS_tok, anchor=torch.tensor([])):    
         self.context_encoder.eval()
         self.decoder.eval()
         

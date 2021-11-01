@@ -129,6 +129,7 @@ def main(args):
     torch.manual_seed(args.seed)
     if torch.cuda.is_available():
         torch.cuda.manual_seed(args.seed)
+        model = model.cuda()
     else:
         print("Note that our pre-trained models require CUDA to evaluate.")
     

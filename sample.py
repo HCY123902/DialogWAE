@@ -29,16 +29,21 @@ CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 POSSIBILITY OF SUCH DAMAGE.
 """
+import os
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 import argparse
 import numpy as np
 import random
 
 import torch
+torch.set_num_threads(10)
+
 import torch.nn as nn
 import json
 
-import os, sys
+import sys
 parentPath = os.path.abspath("..")
 sys.path.insert(0, parentPath)# add parent folder to path so as to import common modules
 from helper import indexes2sent, gVar, gData

@@ -370,16 +370,24 @@ class DailyDialCorpus(object):
                             for utt in l.split('__eou__')[:-1]]
 
                 # Include bod_utt
-                anchors = [0] + [int(utt.strip().split(" ", 1)[0]) + 1 for utt in l.split("__eou__")[:-1]]
+                # Adjusted
+                anchors = [int(utt.strip().split(" ", 1)[0]) for utt in l.split("__eou__")[:-1]]
 
                 for i, anchor in enumerate(anchors):
                     if anchor == -1:
-                        anchors[i] = 0 if i == 0 else i - 1
+                        anchors[i] = i - 1
+
+                # 1 to 0 changed to 1 to 1, and changed to 2 to 1
+                for i, anchor in enumerate(anchors):
+                    anchors[i] = anchors[i] + 1
+
                 # new_anchor.append(anchors)
             else:
                 lower_utts = [["<s>"] + nltk.WordPunctTokenizer().tokenize(utt.lower()) + ["</s>"]
                         for utt in l.split('__eou__')[:-1]]
-                anchors = [i for i in range(len(lower_utts) + 1)]
+
+                # Adjusted, 0, ..., len(lt) - 1 to 0, 0, ..., len(lt) - 1
+                anchors = [i for i in range(len(lower_utts))]
 
             all_lenes.extend([len(u) for u in lower_utts])
             
@@ -387,7 +395,7 @@ class DailyDialCorpus(object):
             floor = 1
             for i, utt in enumerate(lower_utts):
                 floor = floor+1
-                dialog = dialog + [(utt, int(floor%2==0), anchors[i + 1])]
+                dialog = dialog + [(utt, int(floor%2==0), anchors[i])]
             new_utts.extend([bod_utt] + [utt for utt in lower_utts])
             new_dialog.append(dialog)
 

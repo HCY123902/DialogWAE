@@ -299,7 +299,7 @@ class ContextEncoder(nn.Module):
             masked_weight = F.softmax(w_anchor_removed, dim=0)
            
             # num_neighbours, hidden_size * 2
-            h_anchor_removed = torch.cat([utt_encs[dialog, :current_anchor, :], utt_encs[dialog, current_anchor+1:num_neighbours+1, :]], dim = 1)
+            h_anchor_removed = torch.cat([utt_encs[dialog, :current_anchor, :], utt_encs[dialog, current_anchor+1:num_neighbours+1, :]], dim = 0)
 
             weighted_utts = masked_weight.unsqueeze(1).expand(num_neighbours, (self.hidden_size * 2)) * h_anchor_removed
             # hidden_size * 2

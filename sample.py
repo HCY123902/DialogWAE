@@ -38,6 +38,8 @@ import numpy as np
 import random
 
 import torch
+torch.set_num_threads(10)
+
 import torch.nn as nn
 import json
 

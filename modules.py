@@ -291,7 +291,7 @@ class ContextEncoder(nn.Module):
             num_neighbours = int(context_lens[dialog] - 1)
 
             if num_neighbours <= 0:
-                enc.append(utt_encs[dialog, current_anchor, :self.hidden_size] + utt_encs[dialog, current_anchor, self.hidden_size:])
+                enc.append(utt_encs[dialog, 0, :self.hidden_size] + utt_encs[dialog, 0, self.hidden_size:])
                 continue
 
             current_anchor = int(context_lens[dialog] - 1) if anchor.size()[0] == 0 else int(anchor[dialog])

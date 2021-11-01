@@ -214,12 +214,12 @@ class DialogWAE(nn.Module):
         costD = -(errD_prior - errD_post) + gradient_penalty
         return [('train_loss_D', costD.item())]   
     
-    def valid(self, context, context_lens, utt_lens, floors, response, res_lens):
+    def valid(self, context, context_lens, utt_lens, floors, response, res_lens, anchor=torch.tensor([])):
         self.context_encoder.eval()      
         self.discriminator.eval()
         self.decoder.eval()
         
-        c = self.context_encoder(context, context_lens, utt_lens, floors)
+        c = self.context_encoder(context, context_lens, utt_lens, floors, anchor=anchor)
         x,_ = self.utt_encoder(response[:,1:], res_lens-1)
         post_z = self.sample_code_post(x, c)
         prior_z = self.sample_code_prior(c)

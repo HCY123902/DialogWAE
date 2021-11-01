@@ -195,7 +195,7 @@ for epoch in range(start_epoch, config['epochs']+1):
         loss_records.extend(loss_G)
         
         for i in range(config['n_iters_d']):# train discriminator/critic
-            loss_D = model.train_D(context, context_lens, utt_lens, floors, response, res_lens)  
+            loss_D = model.train_D(context, context_lens, utt_lens, floors, response, res_lens, anchor=anchor)  
             if i==0:
                 loss_records.extend(loss_D)
             if i==config['n_iters_d']-1:
@@ -231,11 +231,11 @@ for epoch in range(start_epoch, config['epochs']+1):
                 batch = valid_loader.next_batch()
                 if batch is None: # end of epoch
                     break
-                context, context_lens, utt_lens, floors,_,_,_,response,res_lens,_ = batch
+                context, context_lens, utt_lens, floors,_,_,_,response,res_lens,_, anchor = batch
                 context, utt_lens = context[:,:,1:], utt_lens-1 # remove the sos token in the context and reduce the context length
-                context, context_lens, utt_lens, floors, response, res_lens\
-                        = gVar(context), gVar(context_lens), gVar(utt_lens), gData(floors), gVar(response), gVar(res_lens)
-                valid_loss = model.valid(context, context_lens, utt_lens, floors, response, res_lens)    
+                context, context_lens, utt_lens, floors, response, res_lens, anchor\
+                        = gVar(context), gVar(context_lens), gVar(utt_lens), gData(floors), gVar(response), gVar(res_lens), gVar(anchor)
+                valid_loss = model.valid(context, context_lens, utt_lens, floors, response, res_lens, anchor=anchor)    
                 for loss_name, loss_value in valid_loss:
                     v=loss_records.get(loss_name, [])
                     v.append(loss_value)

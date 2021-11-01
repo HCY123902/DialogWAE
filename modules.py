@@ -312,6 +312,9 @@ class ContextEncoder(nn.Module):
             
             # Excludes later utterances and empty utterances
             # mask = wij[dialog, anchor, :context_lens[dialog]].ne(0)
+
+            # w_anchor_removed = torch.cat([wij[dialog, current_anchor, :current_anchor], wij[dialog, current_anchor, current_anchor+1:]])
+            # masked_weight = F.softmax(w_anchor_removed, dim=0)
             masked_weight = F.softmax(wij[dialog, current_anchor, :current_anchor], dim=0)
             # anchor, hidden_size * 2
             weighted_utts = masked_weight.unsqueeze(1).expand(current_anchor, (self.hidden_size * 2)) * utt_encs[dialog, :current_anchor, :] 

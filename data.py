@@ -381,8 +381,8 @@ class DailyDialCorpus(object):
                 for i, anchor in enumerate(anchors):
                     anchors[i] = anchors[i] + 1
 
-                    if anchor[i] == 1:
-                        anchor[i] = i
+                    if anchors[i] == 1:
+                        anchors[i] = i
 
                 # new_anchor.append(anchors)
             else:

@@ -371,6 +371,8 @@ class DailyDialCorpus(object):
                     parts = utt.strip().split(" ", 1)
                     if len(parts) >= 2:
                         lower_utts.append(["<s>"] + nltk.WordPunctTokenizer().tokenize((parts[1]).lower()) + ["</s>"])
+                    else:
+                        lower_utts.append(["<s>"] + nltk.WordPunctTokenizer().tokenize("oh") + ["</s>"])
 
                 # Include bod_utt
                 # Adjusted

@@ -139,7 +139,7 @@ def main(args):
     # Load data
     data_path=args.data_path+args.dataset+'/'
     glove_path = args.data_path+'glove.twitter.27B.200d.txt'
-    corpus = getattr(data, args.dataset+'Corpus')(data_path, wordvec_path=glove_path, wordvec_dim=conf['emb_size'])
+    corpus = getattr(data, args.dataset+'Corpus')(data_path, wordvec_path=glove_path, wordvec_dim=conf['emb_size'], anchor = args.anchor)
     dials, metas = corpus.get_dialogs(), corpus.get_metas()
     test_dial, test_meta = dials.get("test"), metas.get("test")
     # convert to numeric input outputs that fits into TF models
@@ -162,7 +162,8 @@ if __name__ == "__main__":
     parser.add_argument('--model', type=str, default='DialogWAE', help='model name')
     parser.add_argument('--expname', type=str, default='basic', help='experiment name, disinguishing different parameter settings')
     parser.add_argument('--reload_from', type=int, default=40, help='directory to load models from, SWDA 8, 40, DailyDial 6, 40')
-    
+    parser.add_argument('--anchor', type=int, default=1, help='Adopt anchor')
+
     parser.add_argument('--n_samples', type=int, default=10, help='Number of responses to sampling')
     parser.add_argument('--sample', action='store_true', help='sample when decoding for generation')
     parser.add_argument('--seed', type=int, default=1111, help='random seed')

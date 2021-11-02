@@ -366,8 +366,11 @@ class DailyDialCorpus(object):
             # Modified with anchor
             if self.anchor == 1:
 
-                lower_utts = [["<s>"] + nltk.WordPunctTokenizer().tokenize((utt.split(" ", 1)[1]).lower()) + ["</s>"]
-                            for utt in l.split('__eou__')[:-1]]
+                lower_utts = []
+                for utt in l.split('__eou__')[:-1]:
+                    parts = utt.strip().split(" ", 1)
+                    if len(parts) >= 2:
+                        lower_utts.append(["<s>"] + nltk.WordPunctTokenizer().tokenize((parts[1]).lower()) + ["</s>"])
 
                 # Include bod_utt
                 # Adjusted

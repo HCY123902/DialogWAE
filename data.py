@@ -381,6 +381,9 @@ class DailyDialCorpus(object):
                 for i, anchor in enumerate(anchors):
                     anchors[i] = anchors[i] + 1
 
+                    if anchor[i] == 1:
+                        anchor[i] = i
+
                 # new_anchor.append(anchors)
             else:
                 lower_utts = [["<s>"] + nltk.WordPunctTokenizer().tokenize(utt.lower()) + ["</s>"]

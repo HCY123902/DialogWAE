@@ -31,7 +31,7 @@ POSSIBILITY OF SUCH DAMAGE.
 """
 import os
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "3"
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
 import argparse
 import time
@@ -41,7 +41,7 @@ import random
 import json
 import logging
 import torch
-torch.set_num_threads(10)
+torch.set_num_threads(20)
 
 import sys
 parentPath = os.path.abspath("..")

@@ -1,0 +1,775 @@
+Training...
+DialogWAE-basic|DailyDial@gpu0 epo:[1/80] iter:[100/305] step_time:99s elapsed:0:1:39<0:3:23 
+                      train_loss_AE:6.3835 train_loss_G:0.0125 train_loss_D:9.0303 
+DialogWAE-basic|DailyDial@gpu0 epo:[1/80] iter:[200/305] step_time:85s elapsed:0:3:4<0:1:37 
+                      train_loss_AE:5.5632 train_loss_G:0.0254 train_loss_D:9.1095 
+DialogWAE-basic|DailyDial@gpu0 epo:[1/80] iter:[300/305] step_time:85s elapsed:0:4:30<0:0:5 
+                      train_loss_AE:5.4597 train_loss_G:0.1053 train_loss_D:8.8541 
+DialogWAE-basic|DailyDial@gpu0 epo:[2/80] iter:[100/305] step_time:90s elapsed:0:1:30<0:3:6 
+                      train_loss_AE:5.7146 train_loss_G:0.0718 train_loss_D:8.7480 
+DialogWAE-basic|DailyDial@gpu0 epo:[2/80] iter:[200/305] step_time:78s elapsed:0:2:49<0:1:29 
+                      train_loss_AE:5.3895 train_loss_G:0.0845 train_loss_D:8.4721 
+DialogWAE-basic|DailyDial@gpu0 epo:[2/80] iter:[300/305] step_time:88s elapsed:0:4:17<0:0:4 
+                      train_loss_AE:5.2481 train_loss_G:0.0872 train_loss_D:8.0802 
+DialogWAE-basic|DailyDial@gpu0 epo:[3/80] iter:[100/305] step_time:94s elapsed:0:1:34<0:3:15 
+                      train_loss_AE:4.8732 train_loss_G:0.1645 train_loss_D:7.8903 
+DialogWAE-basic|DailyDial@gpu0 epo:[3/80] iter:[200/305] step_time:88s elapsed:0:3:3<0:1:37 
+                      train_loss_AE:4.9094 train_loss_G:0.1440 train_loss_D:7.9002 
+DialogWAE-basic|DailyDial@gpu0 epo:[3/80] iter:[300/305] step_time:90s elapsed:0:4:33<0:0:5 
+                      train_loss_AE:5.4157 train_loss_G:0.2215 train_loss_D:7.4060 
+DialogWAE-basic|DailyDial@gpu0 epo:[4/80] iter:[100/305] step_time:86s elapsed:0:1:26<0:2:57 
+                      train_loss_AE:5.0004 train_loss_G:0.3197 train_loss_D:7.0712 
+DialogWAE-basic|DailyDial@gpu0 epo:[4/80] iter:[200/305] step_time:82s elapsed:0:2:48<0:1:29 
+                      train_loss_AE:4.8689 train_loss_G:0.3001 train_loss_D:7.0874 
+DialogWAE-basic|DailyDial@gpu0 epo:[4/80] iter:[300/305] step_time:82s elapsed:0:4:10<0:0:4 
+                      train_loss_AE:4.7351 train_loss_G:0.3571 train_loss_D:6.9035 
+DialogWAE-basic|DailyDial@gpu0 epo:[5/80] iter:[100/305] step_time:85s elapsed:0:1:25<0:2:56 
+                      train_loss_AE:4.8302 train_loss_G:0.3556 train_loss_D:6.4157 
+DialogWAE-basic|DailyDial@gpu0 epo:[5/80] iter:[200/305] step_time:85s elapsed:0:2:50<0:1:30 
+                      train_loss_AE:5.0899 train_loss_G:0.4145 train_loss_D:6.7216 
+DialogWAE-basic|DailyDial@gpu0 epo:[5/80] iter:[300/305] step_time:83s elapsed:0:4:14<0:0:4 
+                      train_loss_AE:4.9510 train_loss_G:0.7726 train_loss_D:6.3268 
+DialogWAE-basic|DailyDial@gpu0 epo:[6/80] iter:[100/305] step_time:86s elapsed:0:1:26<0:2:57 
+                      train_loss_AE:4.7326 train_loss_G:0.3999 train_loss_D:5.6628 
+DialogWAE-basic|DailyDial@gpu0 epo:[6/80] iter:[200/305] step_time:85s elapsed:0:2:52<0:1:31 
+                      train_loss_AE:4.3723 train_loss_G:0.4671 train_loss_D:6.2729 
+DialogWAE-basic|DailyDial@gpu0 epo:[6/80] iter:[300/305] step_time:90s elapsed:0:4:22<0:0:5 
+                      train_loss_AE:4.9339 train_loss_G:0.7267 train_loss_D:6.0798 
+DialogWAE-basic|DailyDial@gpu0 epo:[7/80] iter:[100/305] step_time:83s elapsed:0:1:23<0:2:51 
+                      train_loss_AE:4.4685 train_loss_G:0.9559 train_loss_D:5.8680 
+DialogWAE-basic|DailyDial@gpu0 epo:[7/80] iter:[200/305] step_time:78s elapsed:0:2:41<0:1:25 
+                      train_loss_AE:4.6904 train_loss_G:0.9645 train_loss_D:5.4952 
+DialogWAE-basic|DailyDial@gpu0 epo:[7/80] iter:[300/305] step_time:71s elapsed:0:3:53<0:0:4 
+                      train_loss_AE:5.0545 train_loss_G:1.0701 train_loss_D:5.4341 
+DialogWAE-basic|DailyDial@gpu0 epo:[8/80] iter:[100/305] step_time:81s elapsed:0:1:21<0:2:47 
+                      train_loss_AE:4.5108 train_loss_G:1.6056 train_loss_D:4.5531 
+DialogWAE-basic|DailyDial@gpu0 epo:[8/80] iter:[200/305] step_time:88s elapsed:0:2:49<0:1:29 
+                      train_loss_AE:4.4939 train_loss_G:1.3543 train_loss_D:4.7433 
+DialogWAE-basic|DailyDial@gpu0 epo:[8/80] iter:[300/305] step_time:80s elapsed:0:4:10<0:0:4 
+                      train_loss_AE:4.8495 train_loss_G:1.4394 train_loss_D:4.1570 
+DialogWAE-basic|DailyDial@gpu0 epo:[9/80] iter:[100/305] step_time:84s elapsed:0:1:24<0:2:54 
+                      train_loss_AE:4.4042 train_loss_G:1.4322 train_loss_D:4.0441 
+DialogWAE-basic|DailyDial@gpu0 epo:[9/80] iter:[200/305] step_time:85s elapsed:0:2:50<0:1:30 
+                      train_loss_AE:4.4625 train_loss_G:1.9378 train_loss_D:3.7209 
+DialogWAE-basic|DailyDial@gpu0 epo:[9/80] iter:[300/305] step_time:84s elapsed:0:4:15<0:0:4 
+                      train_loss_AE:4.5770 train_loss_G:1.7034 train_loss_D:3.3465 
+DialogWAE-basic|DailyDial@gpu0 epo:[10/80] iter:[100/305] step_time:90s elapsed:0:1:30<0:3:6 
+                      train_loss_AE:4.7125 train_loss_G:1.8350 train_loss_D:3.6704 
+DialogWAE-basic|DailyDial@gpu0 epo:[10/80] iter:[200/305] step_time:80s elapsed:0:2:51<0:1:30 
+                      train_loss_AE:4.4627 train_loss_G:2.8405 train_loss_D:2.4586 
+DialogWAE-basic|DailyDial@gpu0 epo:[10/80] iter:[300/305] step_time:77s elapsed:0:4:9<0:0:4 
+                      train_loss_AE:4.5553 train_loss_G:1.6753 train_loss_D:3.2818 
+DialogWAE-basic|DailyDial@gpu0 epo:[11/80] iter:[100/305] step_time:84s elapsed:0:1:24<0:2:54 
+                      train_loss_AE:4.5243 train_loss_G:2.4294 train_loss_D:2.6919 
+DialogWAE-basic|DailyDial@gpu0 epo:[11/80] iter:[200/305] step_time:83s elapsed:0:2:48<0:1:29 
+                      train_loss_AE:4.2820 train_loss_G:3.4699 train_loss_D:1.4332 
+DialogWAE-basic|DailyDial@gpu0 epo:[11/80] iter:[300/305] step_time:82s elapsed:0:4:11<0:0:4 
+                      train_loss_AE:4.6251 train_loss_G:2.5726 train_loss_D:1.7874 
+DialogWAE-basic|DailyDial@gpu0 epo:[12/80] iter:[100/305] step_time:86s elapsed:0:1:26<0:2:57 
+                      train_loss_AE:4.2229 train_loss_G:3.2098 train_loss_D:1.8076 
+DialogWAE-basic|DailyDial@gpu0 epo:[12/80] iter:[200/305] step_time:93s elapsed:0:2:59<0:1:35 
+                      train_loss_AE:4.3084 train_loss_G:3.1647 train_loss_D:1.2663 
+DialogWAE-basic|DailyDial@gpu0 epo:[12/80] iter:[300/305] step_time:85s elapsed:0:4:25<0:0:5 
+                      train_loss_AE:4.4827 train_loss_G:3.5927 train_loss_D:1.5782 
+DialogWAE-basic|DailyDial@gpu0 epo:[13/80] iter:[100/305] step_time:80s elapsed:0:1:20<0:2:45 
+                      train_loss_AE:4.4780 train_loss_G:3.8660 train_loss_D:0.2155 
+DialogWAE-basic|DailyDial@gpu0 epo:[13/80] iter:[200/305] step_time:80s elapsed:0:2:40<0:1:24 
+                      train_loss_AE:4.4215 train_loss_G:4.3921 train_loss_D:-0.6095 
+DialogWAE-basic|DailyDial@gpu0 epo:[13/80] iter:[300/305] step_time:90s elapsed:0:4:10<0:0:4 
+                      train_loss_AE:4.2342 train_loss_G:3.0215 train_loss_D:1.1959 
+DialogWAE-basic|DailyDial@gpu0 epo:[14/80] iter:[100/305] step_time:89s elapsed:0:1:29<0:3:3 
+                      train_loss_AE:4.0850 train_loss_G:5.2838 train_loss_D:-1.2228 
+DialogWAE-basic|DailyDial@gpu0 epo:[14/80] iter:[200/305] step_time:91s elapsed:0:3:0<0:1:35 
+                      train_loss_AE:4.1196 train_loss_G:3.4946 train_loss_D:0.2293 
+DialogWAE-basic|DailyDial@gpu0 epo:[14/80] iter:[300/305] step_time:88s elapsed:0:4:28<0:0:5 
+                      train_loss_AE:4.2972 train_loss_G:4.0438 train_loss_D:-0.5666 
+DialogWAE-basic|DailyDial@gpu0 epo:[15/80] iter:[100/305] step_time:88s elapsed:0:1:28<0:3:2 
+                      train_loss_AE:4.1659 train_loss_G:5.8914 train_loss_D:-2.1982 
+DialogWAE-basic|DailyDial@gpu0 epo:[15/80] iter:[200/305] step_time:74s elapsed:0:2:43<0:1:26 
+                      train_loss_AE:4.2684 train_loss_G:5.2023 train_loss_D:-0.8926 
+DialogWAE-basic|DailyDial@gpu0 epo:[15/80] iter:[300/305] step_time:76s elapsed:0:4:0<0:0:4 
+                      train_loss_AE:4.2497 train_loss_G:6.3558 train_loss_D:-2.4450 
+DialogWAE-basic|DailyDial@gpu0 epo:[16/80] iter:[100/305] step_time:85s elapsed:0:1:25<0:2:55 
+                      train_loss_AE:4.1132 train_loss_G:7.3614 train_loss_D:-4.3026 
+DialogWAE-basic|DailyDial@gpu0 epo:[16/80] iter:[200/305] step_time:88s elapsed:0:2:54<0:1:32 
+                      train_loss_AE:3.9893 train_loss_G:9.1682 train_loss_D:-5.4028 
+DialogWAE-basic|DailyDial@gpu0 epo:[16/80] iter:[300/305] step_time:87s elapsed:0:4:21<0:0:5 
+                      train_loss_AE:3.7996 train_loss_G:5.7562 train_loss_D:-2.3223 
+DialogWAE-basic|DailyDial@gpu0 epo:[17/80] iter:[100/305] step_time:88s elapsed:0:1:28<0:3:2 
+                      train_loss_AE:4.0612 train_loss_G:8.5534 train_loss_D:-4.9378 
+DialogWAE-basic|DailyDial@gpu0 epo:[17/80] iter:[200/305] step_time:89s elapsed:0:2:57<0:1:34 
+                      train_loss_AE:3.8747 train_loss_G:6.0126 train_loss_D:-2.7016 
+DialogWAE-basic|DailyDial@gpu0 epo:[17/80] iter:[300/305] step_time:93s elapsed:0:4:31<0:0:5 
+                      train_loss_AE:4.4032 train_loss_G:8.3420 train_loss_D:-5.1000 
+DialogWAE-basic|DailyDial@gpu0 epo:[18/80] iter:[100/305] step_time:88s elapsed:0:1:28<0:3:1 
+                      train_loss_AE:4.3591 train_loss_G:9.4277 train_loss_D:-6.8311 
+DialogWAE-basic|DailyDial@gpu0 epo:[18/80] iter:[200/305] step_time:85s elapsed:0:2:53<0:1:31 
+                      train_loss_AE:4.1487 train_loss_G:6.2705 train_loss_D:-4.7522 
+DialogWAE-basic|DailyDial@gpu0 epo:[18/80] iter:[300/305] step_time:84s elapsed:0:4:17<0:0:4 
+                      train_loss_AE:4.3801 train_loss_G:11.5367 train_loss_D:-8.7786 
+DialogWAE-basic|DailyDial@gpu0 epo:[19/80] iter:[100/305] step_time:94s elapsed:0:1:34<0:3:15 
+                      train_loss_AE:4.4157 train_loss_G:7.0157 train_loss_D:-4.9195 
+DialogWAE-basic|DailyDial@gpu0 epo:[19/80] iter:[200/305] step_time:100s elapsed:0:3:14<0:1:43 
+                      train_loss_AE:4.0044 train_loss_G:10.2493 train_loss_D:-8.2115 
+DialogWAE-basic|DailyDial@gpu0 epo:[19/80] iter:[300/305] step_time:94s elapsed:0:4:49<0:0:5 
+                      train_loss_AE:3.6677 train_loss_G:10.1165 train_loss_D:-7.9051 
+DialogWAE-basic|DailyDial@gpu0 epo:[20/80] iter:[100/305] step_time:93s elapsed:0:1:33<0:3:12 
+                      train_loss_AE:4.3061 train_loss_G:11.3119 train_loss_D:-9.1769 
+DialogWAE-basic|DailyDial@gpu0 epo:[20/80] iter:[200/305] step_time:97s elapsed:0:3:11<0:1:41 
+                      train_loss_AE:4.1570 train_loss_G:10.3469 train_loss_D:-6.8126 
+DialogWAE-basic|DailyDial@gpu0 epo:[20/80] iter:[300/305] step_time:95s elapsed:0:4:46<0:0:5 
+                      train_loss_AE:4.2795 train_loss_G:8.0234 train_loss_D:-6.5746 
+DialogWAE-basic|DailyDial@gpu0 epo:[21/80] iter:[100/305] step_time:79s elapsed:0:1:19<0:2:44 
+                      train_loss_AE:4.3493 train_loss_G:16.7403 train_loss_D:-14.4937 
+DialogWAE-basic|DailyDial@gpu0 epo:[21/80] iter:[200/305] step_time:89s elapsed:0:2:49<0:1:29 
+                      train_loss_AE:3.8998 train_loss_G:9.3007 train_loss_D:-6.9721 
+DialogWAE-basic|DailyDial@gpu0 epo:[21/80] iter:[300/305] step_time:97s elapsed:0:4:27<0:0:5 
+                      train_loss_AE:3.5930 train_loss_G:12.7208 train_loss_D:-10.0577 
+DialogWAE-basic|DailyDial@gpu0 epo:[22/80] iter:[100/305] step_time:86s elapsed:0:1:26<0:2:57 
+                      train_loss_AE:4.2421 train_loss_G:17.9007 train_loss_D:-15.2705 
+DialogWAE-basic|DailyDial@gpu0 epo:[22/80] iter:[200/305] step_time:83s elapsed:0:2:49<0:1:29 
+                      train_loss_AE:4.1306 train_loss_G:10.8129 train_loss_D:-10.1648 
+DialogWAE-basic|DailyDial@gpu0 epo:[22/80] iter:[300/305] step_time:86s elapsed:0:4:16<0:0:4 
+                      train_loss_AE:3.9989 train_loss_G:16.3463 train_loss_D:-12.3886 
+DialogWAE-basic|DailyDial@gpu0 epo:[23/80] iter:[100/305] step_time:87s elapsed:0:1:27<0:3:0 
+                      train_loss_AE:4.0191 train_loss_G:20.2695 train_loss_D:-18.1970 
+DialogWAE-basic|DailyDial@gpu0 epo:[23/80] iter:[200/305] step_time:88s elapsed:0:2:56<0:1:33 
+                      train_loss_AE:3.6070 train_loss_G:16.4800 train_loss_D:-14.0597 
+DialogWAE-basic|DailyDial@gpu0 epo:[23/80] iter:[300/305] step_time:81s elapsed:0:4:17<0:0:4 
+                      train_loss_AE:4.1619 train_loss_G:14.1285 train_loss_D:-11.8126 
+DialogWAE-basic|DailyDial@gpu0 epo:[24/80] iter:[100/305] step_time:88s elapsed:0:1:28<0:3:2 
+                      train_loss_AE:3.9112 train_loss_G:13.4078 train_loss_D:-12.1050 
+DialogWAE-basic|DailyDial@gpu0 epo:[24/80] iter:[200/305] step_time:88s elapsed:0:2:56<0:1:33 
+                      train_loss_AE:3.6832 train_loss_G:11.8300 train_loss_D:-9.1519 
+DialogWAE-basic|DailyDial@gpu0 epo:[24/80] iter:[300/305] step_time:86s elapsed:0:4:23<0:0:5 
+                      train_loss_AE:4.2248 train_loss_G:18.6556 train_loss_D:-16.1941 
+DialogWAE-basic|DailyDial@gpu0 epo:[25/80] iter:[100/305] step_time:93s elapsed:0:1:33<0:3:12 
+                      train_loss_AE:3.6629 train_loss_G:20.5447 train_loss_D:-18.2759 
+DialogWAE-basic|DailyDial@gpu0 epo:[25/80] iter:[200/305] step_time:85s elapsed:0:2:59<0:1:34 
+                      train_loss_AE:4.3378 train_loss_G:7.6552 train_loss_D:-5.8590 
+DialogWAE-basic|DailyDial@gpu0 epo:[25/80] iter:[300/305] step_time:82s elapsed:0:4:21<0:0:5 
+                      train_loss_AE:4.1537 train_loss_G:8.1287 train_loss_D:-5.6290 
+DialogWAE-basic|DailyDial@gpu0 epo:[26/80] iter:[100/305] step_time:85s elapsed:0:1:25<0:2:56 
+                      train_loss_AE:4.3869 train_loss_G:15.7474 train_loss_D:-11.7966 
+DialogWAE-basic|DailyDial@gpu0 epo:[26/80] iter:[200/305] step_time:85s elapsed:0:2:51<0:1:30 
+                      train_loss_AE:4.2117 train_loss_G:8.4291 train_loss_D:-4.6561 
+DialogWAE-basic|DailyDial@gpu0 epo:[26/80] iter:[300/305] step_time:84s elapsed:0:4:15<0:0:4 
+                      train_loss_AE:3.7621 train_loss_G:13.8862 train_loss_D:-12.3039 
+DialogWAE-basic|DailyDial@gpu0 epo:[27/80] iter:[100/305] step_time:92s elapsed:0:1:32<0:3:10 
+                      train_loss_AE:4.0939 train_loss_G:19.1927 train_loss_D:-16.3417 
+DialogWAE-basic|DailyDial@gpu0 epo:[27/80] iter:[200/305] step_time:86s elapsed:0:2:58<0:1:34 
+                      train_loss_AE:4.0248 train_loss_G:17.7540 train_loss_D:-15.4939 
+DialogWAE-basic|DailyDial@gpu0 epo:[27/80] iter:[300/305] step_time:87s elapsed:0:4:25<0:0:5 
+                      train_loss_AE:4.3234 train_loss_G:13.4787 train_loss_D:-11.1148 
+DialogWAE-basic|DailyDial@gpu0 epo:[28/80] iter:[100/305] step_time:93s elapsed:0:1:33<0:3:13 
+                      train_loss_AE:3.7516 train_loss_G:14.1163 train_loss_D:-11.6504 
+DialogWAE-basic|DailyDial@gpu0 epo:[28/80] iter:[200/305] step_time:90s elapsed:0:3:4<0:1:37 
+                      train_loss_AE:4.3023 train_loss_G:18.9757 train_loss_D:-16.9848 
+DialogWAE-basic|DailyDial@gpu0 epo:[28/80] iter:[300/305] step_time:80s elapsed:0:4:25<0:0:5 
+                      train_loss_AE:3.6355 train_loss_G:20.7993 train_loss_D:-17.4306 
+DialogWAE-basic|DailyDial@gpu0 epo:[29/80] iter:[100/305] step_time:103s elapsed:0:1:43<0:3:32 
+                      train_loss_AE:3.9880 train_loss_G:13.8283 train_loss_D:-12.1367 
+DialogWAE-basic|DailyDial@gpu0 epo:[29/80] iter:[200/305] step_time:91s elapsed:0:3:14<0:1:43 
+                      train_loss_AE:4.0818 train_loss_G:12.9632 train_loss_D:-5.7219 
+DialogWAE-basic|DailyDial@gpu0 epo:[29/80] iter:[300/305] step_time:89s elapsed:0:4:43<0:0:5 
+                      train_loss_AE:4.0079 train_loss_G:10.3650 train_loss_D:-7.1921 
+DialogWAE-basic|DailyDial@gpu0 epo:[30/80] iter:[100/305] step_time:86s elapsed:0:1:26<0:2:57 
+                      train_loss_AE:3.6216 train_loss_G:14.8588 train_loss_D:-14.3094 
+DialogWAE-basic|DailyDial@gpu0 epo:[30/80] iter:[200/305] step_time:84s elapsed:0:2:50<0:1:30 
+                      train_loss_AE:3.6341 train_loss_G:13.3883 train_loss_D:-7.6473 
+DialogWAE-basic|DailyDial@gpu0 epo:[30/80] iter:[300/305] step_time:87s elapsed:0:4:18<0:0:4 
+                      train_loss_AE:4.1077 train_loss_G:13.0461 train_loss_D:-11.0202 
+DialogWAE-basic|DailyDial@gpu0 epo:[31/80] iter:[100/305] step_time:82s elapsed:0:1:22<0:2:50 
+                      train_loss_AE:4.3173 train_loss_G:15.1245 train_loss_D:-11.1187 
+DialogWAE-basic|DailyDial@gpu0 epo:[31/80] iter:[200/305] step_time:88s elapsed:0:2:51<0:1:30 
+                      train_loss_AE:4.2037 train_loss_G:11.2962 train_loss_D:-10.2637 
+DialogWAE-basic|DailyDial@gpu0 epo:[31/80] iter:[300/305] step_time:78s elapsed:0:4:9<0:0:4 
+                      train_loss_AE:3.8459 train_loss_G:7.3664 train_loss_D:-7.5581 
+DialogWAE-basic|DailyDial@gpu0 epo:[32/80] iter:[100/305] step_time:93s elapsed:0:1:33<0:3:11 
+                      train_loss_AE:3.9321 train_loss_G:14.1519 train_loss_D:-8.1720 
+DialogWAE-basic|DailyDial@gpu0 epo:[32/80] iter:[200/305] step_time:84s elapsed:0:2:57<0:1:33 
+                      train_loss_AE:3.9136 train_loss_G:6.8872 train_loss_D:-4.5379 
+DialogWAE-basic|DailyDial@gpu0 epo:[32/80] iter:[300/305] step_time:81s elapsed:0:4:19<0:0:5 
+                      train_loss_AE:3.9657 train_loss_G:8.7809 train_loss_D:-4.0413 
+DialogWAE-basic|DailyDial@gpu0 epo:[33/80] iter:[100/305] step_time:87s elapsed:0:1:27<0:3:0 
+                      train_loss_AE:3.9302 train_loss_G:4.0991 train_loss_D:-2.4336 
+DialogWAE-basic|DailyDial@gpu0 epo:[33/80] iter:[200/305] step_time:85s elapsed:0:2:53<0:1:31 
+                      train_loss_AE:3.8141 train_loss_G:4.2424 train_loss_D:-1.9213 
+DialogWAE-basic|DailyDial@gpu0 epo:[33/80] iter:[300/305] step_time:89s elapsed:0:4:23<0:0:5 
+                      train_loss_AE:3.7507 train_loss_G:7.9533 train_loss_D:-5.6863 
+DialogWAE-basic|DailyDial@gpu0 epo:[34/80] iter:[100/305] step_time:84s elapsed:0:1:24<0:2:53 
+                      train_loss_AE:3.5566 train_loss_G:6.0445 train_loss_D:-2.4049 
+DialogWAE-basic|DailyDial@gpu0 epo:[34/80] iter:[200/305] step_time:79s elapsed:0:2:43<0:1:26 
+                      train_loss_AE:3.6823 train_loss_G:7.9965 train_loss_D:-3.9944 
+DialogWAE-basic|DailyDial@gpu0 epo:[34/80] iter:[300/305] step_time:80s elapsed:0:4:4<0:0:4 
+                      train_loss_AE:3.7267 train_loss_G:8.1788 train_loss_D:-6.5130 
+DialogWAE-basic|DailyDial@gpu0 epo:[35/80] iter:[100/305] step_time:90s elapsed:0:1:30<0:3:6 
+                      train_loss_AE:3.8319 train_loss_G:6.5080 train_loss_D:-3.6531 
+DialogWAE-basic|DailyDial@gpu0 epo:[35/80] iter:[200/305] step_time:82s elapsed:0:2:53<0:1:31 
+                      train_loss_AE:4.0156 train_loss_G:6.1594 train_loss_D:-8.4545 
+DialogWAE-basic|DailyDial@gpu0 epo:[35/80] iter:[300/305] step_time:85s elapsed:0:4:18<0:0:5 
+                      train_loss_AE:3.8858 train_loss_G:6.2716 train_loss_D:-3.0176 
+DialogWAE-basic|DailyDial@gpu0 epo:[36/80] iter:[100/305] step_time:94s elapsed:0:1:34<0:3:13 
+                      train_loss_AE:4.1816 train_loss_G:7.0536 train_loss_D:-6.5796 
+DialogWAE-basic|DailyDial@gpu0 epo:[36/80] iter:[200/305] step_time:85s elapsed:0:2:59<0:1:34 
+                      train_loss_AE:3.7601 train_loss_G:9.9060 train_loss_D:-8.8364 
+DialogWAE-basic|DailyDial@gpu0 epo:[36/80] iter:[300/305] step_time:89s elapsed:0:4:29<0:0:5 
+                      train_loss_AE:3.8352 train_loss_G:7.9606 train_loss_D:-6.2622 
+DialogWAE-basic|DailyDial@gpu0 epo:[37/80] iter:[100/305] step_time:86s elapsed:0:1:26<0:2:59 
+                      train_loss_AE:3.7867 train_loss_G:9.3696 train_loss_D:-6.5543 
+DialogWAE-basic|DailyDial@gpu0 epo:[37/80] iter:[200/305] step_time:90s elapsed:0:2:57<0:1:33 
+                      train_loss_AE:4.1191 train_loss_G:7.1377 train_loss_D:-7.0650 
+DialogWAE-basic|DailyDial@gpu0 epo:[37/80] iter:[300/305] step_time:93s elapsed:0:4:30<0:0:5 
+                      train_loss_AE:3.7833 train_loss_G:7.5687 train_loss_D:-5.2881 
+DialogWAE-basic|DailyDial@gpu0 epo:[38/80] iter:[100/305] step_time:91s elapsed:0:1:31<0:3:8 
+                      train_loss_AE:4.0003 train_loss_G:7.7782 train_loss_D:-4.3947 
+DialogWAE-basic|DailyDial@gpu0 epo:[38/80] iter:[200/305] step_time:89s elapsed:0:3:1<0:1:36 
+                      train_loss_AE:3.3814 train_loss_G:8.9307 train_loss_D:-4.3965 
+DialogWAE-basic|DailyDial@gpu0 epo:[38/80] iter:[300/305] step_time:80s elapsed:0:4:22<0:0:5 
+                      train_loss_AE:3.8297 train_loss_G:6.8435 train_loss_D:-1.9503 
+DialogWAE-basic|DailyDial@gpu0 epo:[39/80] iter:[100/305] step_time:87s elapsed:0:1:27<0:3:0 
+                      train_loss_AE:4.0110 train_loss_G:6.2731 train_loss_D:-4.0692 
+DialogWAE-basic|DailyDial@gpu0 epo:[39/80] iter:[200/305] step_time:85s elapsed:0:2:52<0:1:31 
+                      train_loss_AE:3.7642 train_loss_G:5.2382 train_loss_D:-6.3824 
+DialogWAE-basic|DailyDial@gpu0 epo:[39/80] iter:[300/305] step_time:87s elapsed:0:4:20<0:0:5 
+                      train_loss_AE:3.6724 train_loss_G:5.3961 train_loss_D:-4.6274 
+DialogWAE-basic|DailyDial@gpu0 epo:[40/80] iter:[100/305] step_time:87s elapsed:0:1:27<0:2:59 
+                      train_loss_AE:3.8554 train_loss_G:3.9052 train_loss_D:-3.6641 
+DialogWAE-basic|DailyDial@gpu0 epo:[40/80] iter:[200/305] step_time:88s elapsed:0:2:55<0:1:32 
+                      train_loss_AE:4.0182 train_loss_G:2.7907 train_loss_D:-0.8266 
+DialogWAE-basic|DailyDial@gpu0 epo:[40/80] iter:[300/305] step_time:89s elapsed:0:4:24<0:0:5 
+                      train_loss_AE:3.9661 train_loss_G:6.1064 train_loss_D:-4.7509 
+DialogWAE-basic|DailyDial@gpu0 epo:[41/80] iter:[100/305] step_time:88s elapsed:0:1:28<0:3:2 
+                      train_loss_AE:3.8109 train_loss_G:6.6809 train_loss_D:-2.8643 
+DialogWAE-basic|DailyDial@gpu0 epo:[41/80] iter:[200/305] step_time:90s elapsed:0:2:58<0:1:34 
+                      train_loss_AE:3.5451 train_loss_G:6.5620 train_loss_D:-7.5781 
+DialogWAE-basic|DailyDial@gpu0 epo:[41/80] iter:[300/305] step_time:75s elapsed:0:4:13<0:0:4 
+                      train_loss_AE:3.8629 train_loss_G:3.1016 train_loss_D:-1.5067 
+DialogWAE-basic|DailyDial@gpu0 epo:[42/80] iter:[100/305] step_time:84s elapsed:0:1:24<0:2:54 
+                      train_loss_AE:3.9845 train_loss_G:6.2281 train_loss_D:-6.0520 
+DialogWAE-basic|DailyDial@gpu0 epo:[42/80] iter:[200/305] step_time:82s elapsed:0:2:47<0:1:28 
+                      train_loss_AE:3.9711 train_loss_G:8.0252 train_loss_D:-5.6574 
+DialogWAE-basic|DailyDial@gpu0 epo:[42/80] iter:[300/305] step_time:90s elapsed:0:4:17<0:0:4 
+                      train_loss_AE:3.8458 train_loss_G:6.5926 train_loss_D:-6.1971 
+DialogWAE-basic|DailyDial@gpu0 epo:[43/80] iter:[100/305] step_time:86s elapsed:0:1:26<0:2:58 
+                      train_loss_AE:3.8030 train_loss_G:6.3053 train_loss_D:-7.6213 
+DialogWAE-basic|DailyDial@gpu0 epo:[43/80] iter:[200/305] step_time:84s elapsed:0:2:51<0:1:30 
+                      train_loss_AE:3.8290 train_loss_G:3.1951 train_loss_D:-6.2468 
+DialogWAE-basic|DailyDial@gpu0 epo:[43/80] iter:[300/305] step_time:92s elapsed:0:4:24<0:0:5 
+                      train_loss_AE:3.9058 train_loss_G:6.1479 train_loss_D:-4.3860 
+DialogWAE-basic|DailyDial@gpu0 epo:[44/80] iter:[100/305] step_time:89s elapsed:0:1:29<0:3:4 
+                      train_loss_AE:3.9998 train_loss_G:5.1534 train_loss_D:-6.2350 
+DialogWAE-basic|DailyDial@gpu0 epo:[44/80] iter:[200/305] step_time:88s elapsed:0:2:58<0:1:34 
+                      train_loss_AE:3.5350 train_loss_G:10.4796 train_loss_D:-8.2711 
+DialogWAE-basic|DailyDial@gpu0 epo:[44/80] iter:[300/305] step_time:86s elapsed:0:4:24<0:0:5 
+                      train_loss_AE:3.8168 train_loss_G:3.0849 train_loss_D:-4.0731 
+DialogWAE-basic|DailyDial@gpu0 epo:[45/80] iter:[100/305] step_time:91s elapsed:0:1:31<0:3:8 
+                      train_loss_AE:3.8105 train_loss_G:5.4676 train_loss_D:-5.5802 
+DialogWAE-basic|DailyDial@gpu0 epo:[45/80] iter:[200/305] step_time:88s elapsed:0:2:59<0:1:35 
+                      train_loss_AE:3.8397 train_loss_G:8.0527 train_loss_D:-5.8003 
+DialogWAE-basic|DailyDial@gpu0 epo:[45/80] iter:[300/305] step_time:90s elapsed:0:4:30<0:0:5 
+                      train_loss_AE:4.0253 train_loss_G:2.9937 train_loss_D:-1.3108 
+DialogWAE-basic|DailyDial@gpu0 epo:[46/80] iter:[100/305] step_time:94s elapsed:0:1:34<0:3:15 
+                      train_loss_AE:3.4647 train_loss_G:3.7790 train_loss_D:-6.7778 
+DialogWAE-basic|DailyDial@gpu0 epo:[46/80] iter:[200/305] step_time:80s elapsed:0:2:56<0:1:33 
+                      train_loss_AE:3.5756 train_loss_G:5.9833 train_loss_D:-4.3867 
+DialogWAE-basic|DailyDial@gpu0 epo:[46/80] iter:[300/305] step_time:94s elapsed:0:4:30<0:0:5 
+                      train_loss_AE:3.9355 train_loss_G:5.8843 train_loss_D:-3.6384 
+DialogWAE-basic|DailyDial@gpu0 epo:[47/80] iter:[100/305] step_time:82s elapsed:0:1:22<0:2:48 
+                      train_loss_AE:3.8032 train_loss_G:4.8509 train_loss_D:-3.9904 
+DialogWAE-basic|DailyDial@gpu0 epo:[47/80] iter:[200/305] step_time:82s elapsed:0:2:44<0:1:26 
+                      train_loss_AE:4.2734 train_loss_G:8.1915 train_loss_D:-6.6393 
+DialogWAE-basic|DailyDial@gpu0 epo:[47/80] iter:[300/305] step_time:83s elapsed:0:4:7<0:0:4 
+                      train_loss_AE:3.3318 train_loss_G:7.5154 train_loss_D:-10.2363 
+DialogWAE-basic|DailyDial@gpu0 epo:[48/80] iter:[100/305] step_time:91s elapsed:0:1:31<0:3:8 
+                      train_loss_AE:3.2589 train_loss_G:3.5714 train_loss_D:-0.9767 
+DialogWAE-basic|DailyDial@gpu0 epo:[48/80] iter:[200/305] step_time:88s elapsed:0:2:59<0:1:35 
+                      train_loss_AE:3.9508 train_loss_G:5.4171 train_loss_D:-3.5628 
+DialogWAE-basic|DailyDial@gpu0 epo:[48/80] iter:[300/305] step_time:90s elapsed:0:4:30<0:0:5 
+                      train_loss_AE:3.7727 train_loss_G:6.9120 train_loss_D:-5.8225 
+DialogWAE-basic|DailyDial@gpu0 epo:[49/80] iter:[100/305] step_time:89s elapsed:0:1:29<0:3:4 
+                      train_loss_AE:3.5921 train_loss_G:6.5602 train_loss_D:-5.4795 
+DialogWAE-basic|DailyDial@gpu0 epo:[49/80] iter:[200/305] step_time:86s elapsed:0:2:55<0:1:33 
+                      train_loss_AE:3.7147 train_loss_G:5.3936 train_loss_D:-4.5768 
+DialogWAE-basic|DailyDial@gpu0 epo:[49/80] iter:[300/305] step_time:83s elapsed:0:4:19<0:0:5 
+                      train_loss_AE:4.0668 train_loss_G:6.2565 train_loss_D:-5.9599 
+DialogWAE-basic|DailyDial@gpu0 epo:[50/80] iter:[100/305] step_time:81s elapsed:0:1:21<0:2:47 
+                      train_loss_AE:4.1187 train_loss_G:4.3694 train_loss_D:-1.5959 
+DialogWAE-basic|DailyDial@gpu0 epo:[50/80] iter:[200/305] step_time:79s elapsed:0:2:41<0:1:25 
+                      train_loss_AE:3.5737 train_loss_G:4.0983 train_loss_D:-4.6659 
+DialogWAE-basic|DailyDial@gpu0 epo:[50/80] iter:[300/305] step_time:78s elapsed:0:3:59<0:0:4 
+                      train_loss_AE:3.7277 train_loss_G:7.2186 train_loss_D:-5.0152 
+DialogWAE-basic|DailyDial@gpu0 epo:[51/80] iter:[100/305] step_time:89s elapsed:0:1:29<0:3:3 
+                      train_loss_AE:3.7582 train_loss_G:7.8081 train_loss_D:-5.3873 
+DialogWAE-basic|DailyDial@gpu0 epo:[51/80] iter:[200/305] step_time:87s elapsed:0:2:57<0:1:33 
+                      train_loss_AE:3.4752 train_loss_G:6.2770 train_loss_D:-8.8595 
+DialogWAE-basic|DailyDial@gpu0 epo:[51/80] iter:[300/305] step_time:86s elapsed:0:4:23<0:0:5 
+                      train_loss_AE:3.7979 train_loss_G:5.7592 train_loss_D:-2.9433 
+DialogWAE-basic|DailyDial@gpu0 epo:[52/80] iter:[100/305] step_time:82s elapsed:0:1:22<0:2:49 
+                      train_loss_AE:3.8373 train_loss_G:8.5638 train_loss_D:-9.3755 
+DialogWAE-basic|DailyDial@gpu0 epo:[52/80] iter:[200/305] step_time:88s elapsed:0:2:50<0:1:30 
+                      train_loss_AE:4.1071 train_loss_G:3.7575 train_loss_D:-3.9089 
+DialogWAE-basic|DailyDial@gpu0 epo:[52/80] iter:[300/305] step_time:84s elapsed:0:4:15<0:0:4 
+                      train_loss_AE:3.5643 train_loss_G:1.5460 train_loss_D:-4.0432 
+DialogWAE-basic|DailyDial@gpu0 epo:[53/80] iter:[100/305] step_time:85s elapsed:0:1:25<0:2:55 
+                      train_loss_AE:3.9106 train_loss_G:4.0982 train_loss_D:-5.2104 
+DialogWAE-basic|DailyDial@gpu0 epo:[53/80] iter:[200/305] step_time:94s elapsed:0:3:0<0:1:35 
+                      train_loss_AE:4.3347 train_loss_G:6.0971 train_loss_D:-6.3544 
+DialogWAE-basic|DailyDial@gpu0 epo:[53/80] iter:[300/305] step_time:89s elapsed:0:4:29<0:0:5 
+                      train_loss_AE:3.7962 train_loss_G:6.7985 train_loss_D:-3.8386 
+DialogWAE-basic|DailyDial@gpu0 epo:[54/80] iter:[100/305] step_time:85s elapsed:0:1:25<0:2:54 
+                      train_loss_AE:3.9623 train_loss_G:7.6588 train_loss_D:-4.2023 
+DialogWAE-basic|DailyDial@gpu0 epo:[54/80] iter:[200/305] step_time:89s elapsed:0:2:54<0:1:32 
+                      train_loss_AE:3.6824 train_loss_G:2.1925 train_loss_D:-3.0791 
+DialogWAE-basic|DailyDial@gpu0 epo:[54/80] iter:[300/305] step_time:83s elapsed:0:4:18<0:0:4 
+                      train_loss_AE:3.9037 train_loss_G:3.4973 train_loss_D:-2.7280 
+DialogWAE-basic|DailyDial@gpu0 epo:[55/80] iter:[100/305] step_time:88s elapsed:0:1:28<0:3:2 
+                      train_loss_AE:4.0001 train_loss_G:3.5530 train_loss_D:-5.5224 
+DialogWAE-basic|DailyDial@gpu0 epo:[55/80] iter:[200/305] step_time:83s elapsed:0:2:52<0:1:31 
+                      train_loss_AE:3.8897 train_loss_G:4.1977 train_loss_D:-3.9078 
+DialogWAE-basic|DailyDial@gpu0 epo:[55/80] iter:[300/305] step_time:85s elapsed:0:4:18<0:0:4 
+                      train_loss_AE:3.1017 train_loss_G:2.8867 train_loss_D:-3.5910 
+DialogWAE-basic|DailyDial@gpu0 epo:[56/80] iter:[100/305] step_time:82s elapsed:0:1:22<0:2:49 
+                      train_loss_AE:3.7714 train_loss_G:5.8390 train_loss_D:-4.6027 
+DialogWAE-basic|DailyDial@gpu0 epo:[56/80] iter:[200/305] step_time:88s elapsed:0:2:50<0:1:30 
+                      train_loss_AE:4.0820 train_loss_G:3.3566 train_loss_D:-2.9106 
+DialogWAE-basic|DailyDial@gpu0 epo:[56/80] iter:[300/305] step_time:92s elapsed:0:4:23<0:0:5 
+                      train_loss_AE:3.6195 train_loss_G:1.9964 train_loss_D:-1.1850 
+DialogWAE-basic|DailyDial@gpu0 epo:[57/80] iter:[100/305] step_time:90s elapsed:0:1:30<0:3:5 
+                      train_loss_AE:3.7891 train_loss_G:5.5169 train_loss_D:-4.8480 
+DialogWAE-basic|DailyDial@gpu0 epo:[57/80] iter:[200/305] step_time:85s elapsed:0:2:55<0:1:32 
+                      train_loss_AE:3.8924 train_loss_G:5.7696 train_loss_D:-3.3365 
+DialogWAE-basic|DailyDial@gpu0 epo:[57/80] iter:[300/305] step_time:90s elapsed:0:4:26<0:0:5 
+                      train_loss_AE:3.6280 train_loss_G:6.3231 train_loss_D:-3.4025 
+DialogWAE-basic|DailyDial@gpu0 epo:[58/80] iter:[100/305] step_time:82s elapsed:0:1:22<0:2:50 
+                      train_loss_AE:3.4021 train_loss_G:0.4763 train_loss_D:-1.5145 
+DialogWAE-basic|DailyDial@gpu0 epo:[58/80] iter:[200/305] step_time:84s elapsed:0:2:46<0:1:28 
+                      train_loss_AE:3.7330 train_loss_G:4.5293 train_loss_D:-3.2619 
+DialogWAE-basic|DailyDial@gpu0 epo:[58/80] iter:[300/305] step_time:80s elapsed:0:4:7<0:0:4 
+                      train_loss_AE:3.7945 train_loss_G:6.2328 train_loss_D:-5.7624 
+DialogWAE-basic|DailyDial@gpu0 epo:[59/80] iter:[100/305] step_time:92s elapsed:0:1:32<0:3:10 
+                      train_loss_AE:3.9395 train_loss_G:5.7360 train_loss_D:-6.7422 
+DialogWAE-basic|DailyDial@gpu0 epo:[59/80] iter:[200/305] step_time:85s elapsed:0:2:57<0:1:34 
+                      train_loss_AE:4.1961 train_loss_G:2.9019 train_loss_D:-4.7728 
+DialogWAE-basic|DailyDial@gpu0 epo:[59/80] iter:[300/305] step_time:86s elapsed:0:4:24<0:0:5 
+                      train_loss_AE:4.0956 train_loss_G:6.9998 train_loss_D:-5.6615 
+DialogWAE-basic|DailyDial@gpu0 epo:[60/80] iter:[100/305] step_time:89s elapsed:0:1:29<0:3:5 
+                      train_loss_AE:3.5580 train_loss_G:4.3613 train_loss_D:-10.1036 
+DialogWAE-basic|DailyDial@gpu0 epo:[60/80] iter:[200/305] step_time:89s elapsed:0:2:59<0:1:34 
+                      train_loss_AE:3.7994 train_loss_G:6.3888 train_loss_D:-4.4382 
+DialogWAE-basic|DailyDial@gpu0 epo:[60/80] iter:[300/305] step_time:87s elapsed:0:4:26<0:0:5 
+                      train_loss_AE:3.9492 train_loss_G:1.9262 train_loss_D:-0.7823 
+DialogWAE-basic|DailyDial@gpu0 epo:[61/80] iter:[100/305] step_time:85s elapsed:0:1:25<0:2:55 
+                      train_loss_AE:3.5860 train_loss_G:5.2595 train_loss_D:-3.0768 
+DialogWAE-basic|DailyDial@gpu0 epo:[61/80] iter:[200/305] step_time:88s elapsed:0:2:53<0:1:31 
+                      train_loss_AE:3.7653 train_loss_G:4.7441 train_loss_D:-5.7817 
+DialogWAE-basic|DailyDial@gpu0 epo:[61/80] iter:[300/305] step_time:90s elapsed:0:4:23<0:0:5 
+                      train_loss_AE:3.3977 train_loss_G:2.6649 train_loss_D:-1.9981 
+DialogWAE-basic|DailyDial@gpu0 epo:[62/80] iter:[100/305] step_time:85s elapsed:0:1:25<0:2:55 
+                      train_loss_AE:4.0217 train_loss_G:3.5846 train_loss_D:-2.3681 
+DialogWAE-basic|DailyDial@gpu0 epo:[62/80] iter:[200/305] step_time:89s elapsed:0:2:55<0:1:32 
+                      train_loss_AE:3.6656 train_loss_G:6.3576 train_loss_D:-6.7175 
+DialogWAE-basic|DailyDial@gpu0 epo:[62/80] iter:[300/305] step_time:90s elapsed:0:4:25<0:0:5 
+                      train_loss_AE:3.5321 train_loss_G:5.6948 train_loss_D:-4.6803 
+DialogWAE-basic|DailyDial@gpu0 epo:[63/80] iter:[100/305] step_time:85s elapsed:0:1:25<0:2:55 
+                      train_loss_AE:3.6047 train_loss_G:0.6974 train_loss_D:0.9702 
+DialogWAE-basic|DailyDial@gpu0 epo:[63/80] iter:[200/305] step_time:84s elapsed:0:2:49<0:1:29 
+                      train_loss_AE:3.8244 train_loss_G:6.0842 train_loss_D:-4.2939 
+DialogWAE-basic|DailyDial@gpu0 epo:[63/80] iter:[300/305] step_time:83s elapsed:0:4:13<0:0:4 
+                      train_loss_AE:3.9180 train_loss_G:4.5713 train_loss_D:-3.6398 
+DialogWAE-basic|DailyDial@gpu0 epo:[64/80] iter:[100/305] step_time:81s elapsed:0:1:21<0:2:47 
+                      train_loss_AE:3.9702 train_loss_G:5.2751 train_loss_D:-7.1941 
+DialogWAE-basic|DailyDial@gpu0 epo:[64/80] iter:[200/305] step_time:88s elapsed:0:2:49<0:1:29 
+                      train_loss_AE:3.6299 train_loss_G:8.4075 train_loss_D:-1.1693 
+DialogWAE-basic|DailyDial@gpu0 epo:[64/80] iter:[300/305] step_time:90s elapsed:0:4:19<0:0:5 
+                      train_loss_AE:3.8775 train_loss_G:1.2725 train_loss_D:-1.3587 
+DialogWAE-basic|DailyDial@gpu0 epo:[65/80] iter:[100/305] step_time:92s elapsed:0:1:32<0:3:10 
+                      train_loss_AE:3.5882 train_loss_G:3.3260 train_loss_D:-2.9842 
+DialogWAE-basic|DailyDial@gpu0 epo:[65/80] iter:[200/305] step_time:83s elapsed:0:2:55<0:1:32 
+                      train_loss_AE:3.7976 train_loss_G:3.8368 train_loss_D:0.0604 
+DialogWAE-basic|DailyDial@gpu0 epo:[65/80] iter:[300/305] step_time:86s elapsed:0:4:22<0:0:5 
+                      train_loss_AE:3.7424 train_loss_G:3.1424 train_loss_D:-3.3935 
+DialogWAE-basic|DailyDial@gpu0 epo:[66/80] iter:[100/305] step_time:83s elapsed:0:1:23<0:2:52 
+                      train_loss_AE:3.7146 train_loss_G:2.5880 train_loss_D:-3.8143 
+DialogWAE-basic|DailyDial@gpu0 epo:[66/80] iter:[200/305] step_time:85s elapsed:0:2:49<0:1:29 
+                      train_loss_AE:3.7416 train_loss_G:3.2583 train_loss_D:-3.5589 
+DialogWAE-basic|DailyDial@gpu0 epo:[66/80] iter:[300/305] step_time:87s elapsed:0:4:16<0:0:4 
+                      train_loss_AE:3.5364 train_loss_G:6.7669 train_loss_D:-4.4233 
+DialogWAE-basic|DailyDial@gpu0 epo:[67/80] iter:[100/305] step_time:86s elapsed:0:1:26<0:2:57 
+                      train_loss_AE:3.2527 train_loss_G:5.7643 train_loss_D:-4.5695 
+DialogWAE-basic|DailyDial@gpu0 epo:[67/80] iter:[200/305] step_time:88s elapsed:0:2:54<0:1:32 
+                      train_loss_AE:3.6719 train_loss_G:2.8504 train_loss_D:-5.4313 
+DialogWAE-basic|DailyDial@gpu0 epo:[67/80] iter:[300/305] step_time:89s elapsed:0:4:24<0:0:5 
+                      train_loss_AE:3.5591 train_loss_G:8.4992 train_loss_D:-9.7311 
+DialogWAE-basic|DailyDial@gpu0 epo:[68/80] iter:[100/305] step_time:86s elapsed:0:1:26<0:2:58 
+                      train_loss_AE:3.7850 train_loss_G:3.6017 train_loss_D:-4.5061 
+DialogWAE-basic|DailyDial@gpu0 epo:[68/80] iter:[200/305] step_time:85s elapsed:0:2:51<0:1:30 
+                      train_loss_AE:3.5269 train_loss_G:5.6615 train_loss_D:-4.2916 
+DialogWAE-basic|DailyDial@gpu0 epo:[68/80] iter:[300/305] step_time:84s elapsed:0:4:16<0:0:4 
+                      train_loss_AE:3.5811 train_loss_G:6.4161 train_loss_D:-4.4277 
+DialogWAE-basic|DailyDial@gpu0 epo:[69/80] iter:[100/305] step_time:88s elapsed:0:1:28<0:3:2 
+                      train_loss_AE:3.7519 train_loss_G:3.1063 train_loss_D:-6.5592 
+DialogWAE-basic|DailyDial@gpu0 epo:[69/80] iter:[200/305] step_time:77s elapsed:0:2:45<0:1:27 
+                      train_loss_AE:3.6302 train_loss_G:4.6571 train_loss_D:0.7240 
+DialogWAE-basic|DailyDial@gpu0 epo:[69/80] iter:[300/305] step_time:72s elapsed:0:3:57<0:0:4 
+                      train_loss_AE:3.7855 train_loss_G:3.5156 train_loss_D:-3.3065 
+DialogWAE-basic|DailyDial@gpu0 epo:[70/80] iter:[100/305] step_time:85s elapsed:0:1:25<0:2:56 
+                      train_loss_AE:4.2185 train_loss_G:4.5568 train_loss_D:-2.7215 
+DialogWAE-basic|DailyDial@gpu0 epo:[70/80] iter:[200/305] step_time:81s elapsed:0:2:46<0:1:28 
+                      train_loss_AE:4.0834 train_loss_G:3.7827 train_loss_D:-2.0987 
+DialogWAE-basic|DailyDial@gpu0 epo:[70/80] iter:[300/305] step_time:79s elapsed:0:4:6<0:0:4 
+                      train_loss_AE:3.8201 train_loss_G:2.7446 train_loss_D:-3.8778 
+DialogWAE-basic|DailyDial@gpu0 epo:[71/80] iter:[100/305] step_time:77s elapsed:0:1:17<0:2:40 
+                      train_loss_AE:3.7735 train_loss_G:7.5622 train_loss_D:-5.5856 
+DialogWAE-basic|DailyDial@gpu0 epo:[71/80] iter:[200/305] step_time:83s elapsed:0:2:41<0:1:25 
+                      train_loss_AE:3.8363 train_loss_G:5.2063 train_loss_D:-3.8378 
+DialogWAE-basic|DailyDial@gpu0 epo:[71/80] iter:[300/305] step_time:83s elapsed:0:4:4<0:0:4 
+                      train_loss_AE:3.8382 train_loss_G:1.8961 train_loss_D:-5.1178 
+DialogWAE-basic|DailyDial@gpu0 epo:[72/80] iter:[100/305] step_time:79s elapsed:0:1:19<0:2:44 
+                      train_loss_AE:3.7643 train_loss_G:12.5213 train_loss_D:-4.9780 
+DialogWAE-basic|DailyDial@gpu0 epo:[72/80] iter:[200/305] step_time:90s elapsed:0:2:50<0:1:30 
+                      train_loss_AE:3.6407 train_loss_G:5.6528 train_loss_D:-4.1781 
+DialogWAE-basic|DailyDial@gpu0 epo:[72/80] iter:[300/305] step_time:93s elapsed:0:4:24<0:0:5 
+                      train_loss_AE:3.7492 train_loss_G:7.8137 train_loss_D:-1.5433 
+DialogWAE-basic|DailyDial@gpu0 epo:[73/80] iter:[100/305] step_time:91s elapsed:0:1:31<0:3:9 
+                      train_loss_AE:3.5368 train_loss_G:3.8062 train_loss_D:-2.6802 
+DialogWAE-basic|DailyDial@gpu0 epo:[73/80] iter:[200/305] step_time:81s elapsed:0:2:53<0:1:31 
+                      train_loss_AE:3.7166 train_loss_G:2.7678 train_loss_D:-3.6659 
+DialogWAE-basic|DailyDial@gpu0 epo:[73/80] iter:[300/305] step_time:84s elapsed:0:4:17<0:0:4 
+                      train_loss_AE:4.0363 train_loss_G:5.8329 train_loss_D:-4.0646 
+DialogWAE-basic|DailyDial@gpu0 epo:[74/80] iter:[100/305] step_time:85s elapsed:0:1:25<0:2:55 
+                      train_loss_AE:4.1558 train_loss_G:1.7063 train_loss_D:-3.8580 
+DialogWAE-basic|DailyDial@gpu0 epo:[74/80] iter:[200/305] step_time:83s elapsed:0:2:48<0:1:29 
+                      train_loss_AE:4.0022 train_loss_G:2.6859 train_loss_D:-1.5808 
+DialogWAE-basic|DailyDial@gpu0 epo:[74/80] iter:[300/305] step_time:78s elapsed:0:4:7<0:0:4 
+                      train_loss_AE:3.6720 train_loss_G:5.3447 train_loss_D:-3.2705 
+DialogWAE-basic|DailyDial@gpu0 epo:[75/80] iter:[100/305] step_time:94s elapsed:0:1:34<0:3:13 
+                      train_loss_AE:3.6790 train_loss_G:4.5379 train_loss_D:-4.0575 
+DialogWAE-basic|DailyDial@gpu0 epo:[75/80] iter:[200/305] step_time:89s elapsed:0:3:3<0:1:37 
+                      train_loss_AE:3.5647 train_loss_G:4.3051 train_loss_D:-0.9337 
+DialogWAE-basic|DailyDial@gpu0 epo:[75/80] iter:[300/305] step_time:84s elapsed:0:4:28<0:0:5 
+                      train_loss_AE:3.4366 train_loss_G:-2.1605 train_loss_D:-1.3093 
+DialogWAE-basic|DailyDial@gpu0 epo:[76/80] iter:[100/305] step_time:88s elapsed:0:1:28<0:3:2 
+                      train_loss_AE:3.7190 train_loss_G:4.2476 train_loss_D:-4.1596 
+DialogWAE-basic|DailyDial@gpu0 epo:[76/80] iter:[200/305] step_time:83s elapsed:0:2:52<0:1:31 
+                      train_loss_AE:3.7983 train_loss_G:3.0550 train_loss_D:-2.9358 
+DialogWAE-basic|DailyDial@gpu0 epo:[76/80] iter:[300/305] step_time:83s elapsed:0:4:16<0:0:4 
+                      train_loss_AE:3.6083 train_loss_G:4.8539 train_loss_D:-5.2117 
+DialogWAE-basic|DailyDial@gpu0 epo:[77/80] iter:[100/305] step_time:83s elapsed:0:1:23<0:2:52 
+                      train_loss_AE:3.9681 train_loss_G:1.1730 train_loss_D:-1.9373 
+DialogWAE-basic|DailyDial@gpu0 epo:[77/80] iter:[200/305] step_time:88s elapsed:0:2:52<0:1:31 
+                      train_loss_AE:3.8130 train_loss_G:2.9220 train_loss_D:-1.3289 
+DialogWAE-basic|DailyDial@gpu0 epo:[77/80] iter:[300/305] step_time:93s elapsed:0:4:26<0:0:5 
+                      train_loss_AE:3.6696 train_loss_G:4.5085 train_loss_D:-2.9865 
+DialogWAE-basic|DailyDial@gpu0 epo:[78/80] iter:[100/305] step_time:87s elapsed:0:1:27<0:2:59 
+                      train_loss_AE:3.7255 train_loss_G:5.5729 train_loss_D:-4.7954 
+DialogWAE-basic|DailyDial@gpu0 epo:[78/80] iter:[200/305] step_time:92s elapsed:0:2:59<0:1:35 
+                      train_loss_AE:3.3650 train_loss_G:6.4006 train_loss_D:-6.2873 
+DialogWAE-basic|DailyDial@gpu0 epo:[78/80] iter:[300/305] step_time:77s elapsed:0:4:17<0:0:4 
+                      train_loss_AE:3.7237 train_loss_G:3.1093 train_loss_D:-2.3217 
+DialogWAE-basic|DailyDial@gpu0 epo:[79/80] iter:[100/305] step_time:78s elapsed:0:1:18<0:2:41 
+                      train_loss_AE:3.8816 train_loss_G:6.3683 train_loss_D:-1.5523 
+DialogWAE-basic|DailyDial@gpu0 epo:[79/80] iter:[200/305] step_time:74s elapsed:0:2:32<0:1:20 
+                      train_loss_AE:3.9635 train_loss_G:7.4456 train_loss_D:-4.5237 
+DialogWAE-basic|DailyDial@gpu0 epo:[79/80] iter:[300/305] step_time:80s elapsed:0:3:52<0:0:4 
+                      train_loss_AE:3.5619 train_loss_G:2.8749 train_loss_D:0.8615 
+DialogWAE-basic|DailyDial@gpu0 epo:[80/80] iter:[100/305] step_time:77s elapsed:0:1:17<0:2:38 
+                      train_loss_AE:3.7856 train_loss_G:1.5045 train_loss_D:-1.5442 
+DialogWAE-basic|DailyDial@gpu0 epo:[80/80] iter:[200/305] step_time:85s elapsed:0:2:43<0:1:26 
+                      train_loss_AE:3.5441 train_loss_G:4.2011 train_loss_D:-5.8730 
+DialogWAE-basic|DailyDial@gpu0 epo:[80/80] iter:[300/305] step_time:86s elapsed:0:4:9<0:0:4 
+                      train_loss_AE:3.4465 train_loss_G:3.2279 train_loss_D:-2.2965 
+{'data_path': './data/', 'dataset': 'DailyDial', 'model': 'DialogWAE', 'expname': 'basic', 'visual': True, 'reload_from': -1, 'gpu_id': 0, 'anchor': 1, 'sample': False, 'log_every': 100, 'valid_every': 400, 'eval_every': 2, 'seed': 1111}
+Max utt len 125, mean utt len 15.30
+Max utt len 91, mean utt len 14.83
+Max utt len 128, mean utt len 15.97
+Load corpus with train size 2, valid size 2, test size 2 raw vocab size 26510 vocab size 10000 at cut_off 3 OOV rate 0.024050
+<d> index 22
+<sil> index -1
+word2vec cannot cover 0.351730 vocab
+Done loading corpus
+Max len 168 and min len 3 and avg len 11.039438
+Max len 69 and min len 3 and avg len 10.995516
+Max len 192 and min len 3 and avg len 13.377465
+Loaded data!
+Loaded word2vec
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.197966, avg precision BLEU 0.151460, F1 0.171618, bow_extrema 0.379286, bow_avg 0.642054, bow_greedy 0.602540,    intra_dist1 0.228604, intra_dist2 0.317856, avg_len 35.038684, inter_dist1 0.024343, inter_dist2 0.035753 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.405903, avg precision BLEU 0.379163, F1 0.392078, bow_extrema 0.401949, bow_avg 0.562042, bow_greedy 0.744277,    intra_dist1 0.434157, intra_dist2 0.604192, avg_len 6.111466, inter_dist1 0.053057, inter_dist2 0.086654 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.405185, avg precision BLEU 0.364007, F1 0.383494, bow_extrema 0.492736, bow_avg 0.832446, bow_greedy 0.822356,    intra_dist1 0.857060, intra_dist2 0.920003, avg_len 7.366351, inter_dist1 0.115172, inter_dist2 0.138083 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.402249, avg precision BLEU 0.324921, F1 0.359473, bow_extrema 0.468415, bow_avg 0.836221, bow_greedy 0.799414,    intra_dist1 0.747420, intra_dist2 0.880721, avg_len 14.504736, inter_dist1 0.155774, inter_dist2 0.228232 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.363275, avg precision BLEU 0.336846, F1 0.349561, bow_extrema 0.447469, bow_avg 0.812793, bow_greedy 0.814424,    intra_dist1 0.829316, intra_dist2 0.952452, avg_len 8.866451, inter_dist1 0.104901, inter_dist2 0.137807 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.398983, avg precision BLEU 0.370983, F1 0.384474, bow_extrema 0.458394, bow_avg 0.815688, bow_greedy 0.819985,    intra_dist1 0.902325, intra_dist2 0.978961, avg_len 6.198804, inter_dist1 0.109996, inter_dist2 0.133065 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.680782, avg precision BLEU 0.522035, F1 0.590933, bow_extrema 0.466596, bow_avg 0.725378, bow_greedy 0.790733,    intra_dist1 0.854546, intra_dist2 0.896022, avg_len 3.307827, inter_dist1 0.151828, inter_dist2 0.242799 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.591591, avg precision BLEU 0.422681, F1 0.493072, bow_extrema 0.509094, bow_avg 0.816342, bow_greedy 0.816706,    intra_dist1 0.638501, intra_dist2 0.823062, avg_len 6.032552, inter_dist1 0.176327, inter_dist2 0.292451 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.590051, avg precision BLEU 0.411393, F1 0.484785, bow_extrema 0.499889, bow_avg 0.814307, bow_greedy 0.818798,    intra_dist1 0.737863, intra_dist2 0.902421, avg_len 6.156481, inter_dist1 0.179587, inter_dist2 0.320068 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.670130, avg precision BLEU 0.460030, F1 0.545551, bow_extrema 0.517798, bow_avg 0.826517, bow_greedy 0.808649,    intra_dist1 0.822333, intra_dist2 0.880107, avg_len 5.573330, inter_dist1 0.187382, inter_dist2 0.333477 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.663967, avg precision BLEU 0.418772, F1 0.513606, bow_extrema 0.527242, bow_avg 0.841482, bow_greedy 0.829332,    intra_dist1 0.898580, intra_dist2 0.890803, avg_len 5.911615, inter_dist1 0.331710, inter_dist2 0.514676 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.587562, avg precision BLEU 0.411501, F1 0.484018, bow_extrema 0.517156, bow_avg 0.846345, bow_greedy 0.825868,    intra_dist1 0.884995, intra_dist2 0.923995, avg_len 8.374078, inter_dist1 0.267660, inter_dist2 0.404137 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.538558, avg precision BLEU 0.360893, F1 0.432178, bow_extrema 0.515553, bow_avg 0.846016, bow_greedy 0.825948,    intra_dist1 0.811064, intra_dist2 0.907201, avg_len 9.605633, inter_dist1 0.256898, inter_dist2 0.420128 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.584502, avg precision BLEU 0.373212, F1 0.455550, bow_extrema 0.526246, bow_avg 0.846133, bow_greedy 0.825808,    intra_dist1 0.842657, intra_dist2 0.852749, avg_len 8.157677, inter_dist1 0.340759, inter_dist2 0.537347 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.718196, avg precision BLEU 0.395492, F1 0.510090, bow_extrema 0.537203, bow_avg 0.858332, bow_greedy 0.829224,    intra_dist1 0.863766, intra_dist2 0.892582, avg_len 8.750548, inter_dist1 0.406038, inter_dist2 0.629552 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.747728, avg precision BLEU 0.407807, F1 0.527770, bow_extrema 0.541990, bow_avg 0.857635, bow_greedy 0.827839,    intra_dist1 0.805303, intra_dist2 0.808244, avg_len 10.244118, inter_dist1 0.353693, inter_dist2 0.580990 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.763993, avg precision BLEU 0.404888, F1 0.529278, bow_extrema 0.545722, bow_avg 0.857313, bow_greedy 0.829375,    intra_dist1 0.800385, intra_dist2 0.802859, avg_len 10.537338, inter_dist1 0.365783, inter_dist2 0.579499 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.607768, avg precision BLEU 0.306094, F1 0.407139, bow_extrema 0.529030, bow_avg 0.859490, bow_greedy 0.822572,    intra_dist1 0.693471, intra_dist2 0.807430, avg_len 16.677717, inter_dist1 0.253704, inter_dist2 0.456146 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.726431, avg precision BLEU 0.367669, F1 0.488230, bow_extrema 0.534277, bow_avg 0.860199, bow_greedy 0.828740,    intra_dist1 0.788760, intra_dist2 0.811941, avg_len 12.277019, inter_dist1 0.348384, inter_dist2 0.583523 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.790192, avg precision BLEU 0.394194, F1 0.525992, bow_extrema 0.543030, bow_avg 0.862050, bow_greedy 0.832214,    intra_dist1 0.835578, intra_dist2 0.857380, avg_len 10.224975, inter_dist1 0.396226, inter_dist2 0.651937 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.686123, avg precision BLEU 0.340403, F1 0.455046, bow_extrema 0.536122, bow_avg 0.864617, bow_greedy 0.829896,    intra_dist1 0.773811, intra_dist2 0.843360, avg_len 13.460169, inter_dist1 0.322040, inter_dist2 0.552377 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.617537, avg precision BLEU 0.307020, F1 0.410134, bow_extrema 0.528390, bow_avg 0.864665, bow_greedy 0.826233,    intra_dist1 0.721383, intra_dist2 0.813187, avg_len 16.662263, inter_dist1 0.266028, inter_dist2 0.462821 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.662982, avg precision BLEU 0.322996, F1 0.434372, bow_extrema 0.538109, bow_avg 0.862233, bow_greedy 0.826380,    intra_dist1 0.699073, intra_dist2 0.791716, avg_len 15.046909, inter_dist1 0.282487, inter_dist2 0.491251 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.658330, avg precision BLEU 0.311568, F1 0.422961, bow_extrema 0.534356, bow_avg 0.867595, bow_greedy 0.826857,    intra_dist1 0.709055, intra_dist2 0.794617, avg_len 17.198355, inter_dist1 0.282267, inter_dist2 0.483573 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.814070, avg precision BLEU 0.398052, F1 0.534669, bow_extrema 0.544049, bow_avg 0.860175, bow_greedy 0.831389,    intra_dist1 0.808839, intra_dist2 0.827554, avg_len 11.126371, inter_dist1 0.361974, inter_dist2 0.587105 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.837997, avg precision BLEU 0.412714, F1 0.553050, bow_extrema 0.548771, bow_avg 0.864556, bow_greedy 0.833921,    intra_dist1 0.848412, intra_dist2 0.842939, avg_len 9.665005, inter_dist1 0.413862, inter_dist2 0.671522 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.706033, avg precision BLEU 0.347108, F1 0.465407, bow_extrema 0.531218, bow_avg 0.860820, bow_greedy 0.825961,    intra_dist1 0.722606, intra_dist2 0.825721, avg_len 14.357827, inter_dist1 0.315588, inter_dist2 0.539724 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.722895, avg precision BLEU 0.352612, F1 0.474012, bow_extrema 0.541713, bow_avg 0.868004, bow_greedy 0.830862,    intra_dist1 0.784809, intra_dist2 0.838247, avg_len 13.674925, inter_dist1 0.350007, inter_dist2 0.595081 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.796180, avg precision BLEU 0.385197, F1 0.519201, bow_extrema 0.542278, bow_avg 0.866722, bow_greedy 0.830930,    intra_dist1 0.793360, intra_dist2 0.822478, avg_len 12.478913, inter_dist1 0.374476, inter_dist2 0.621902 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.787204, avg precision BLEU 0.378697, F1 0.511384, bow_extrema 0.547091, bow_avg 0.869853, bow_greedy 0.833854,    intra_dist1 0.822627, intra_dist2 0.859472, avg_len 11.400050, inter_dist1 0.395063, inter_dist2 0.655378 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.781438, avg precision BLEU 0.374819, F1 0.506631, bow_extrema 0.544763, bow_avg 0.868668, bow_greedy 0.833329,    intra_dist1 0.805334, intra_dist2 0.833725, avg_len 12.124726, inter_dist1 0.372272, inter_dist2 0.614856 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.767116, avg precision BLEU 0.383030, F1 0.510941, bow_extrema 0.543736, bow_avg 0.866480, bow_greedy 0.832088,    intra_dist1 0.819630, intra_dist2 0.836601, avg_len 11.154835, inter_dist1 0.395495, inter_dist2 0.647607 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.505102, avg precision BLEU 0.276829, F1 0.357645, bow_extrema 0.525848, bow_avg 0.870267, bow_greedy 0.820890,    intra_dist1 0.702151, intra_dist2 0.816293, avg_len 19.096162, inter_dist1 0.281145, inter_dist2 0.513363 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.681048, avg precision BLEU 0.327727, F1 0.442512, bow_extrema 0.536169, bow_avg 0.868141, bow_greedy 0.828567,    intra_dist1 0.734617, intra_dist2 0.816062, avg_len 15.325773, inter_dist1 0.308015, inter_dist2 0.538817 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.728697, avg precision BLEU 0.345324, F1 0.468588, bow_extrema 0.536838, bow_avg 0.868237, bow_greedy 0.830095,    intra_dist1 0.785211, intra_dist2 0.830066, avg_len 13.182502, inter_dist1 0.354373, inter_dist2 0.591965 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.694925, avg precision BLEU 0.346628, F1 0.462541, bow_extrema 0.537148, bow_avg 0.867981, bow_greedy 0.830418,    intra_dist1 0.788386, intra_dist2 0.834732, avg_len 13.658126, inter_dist1 0.354632, inter_dist2 0.598685 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.744703, avg precision BLEU 0.351601, F1 0.477675, bow_extrema 0.540166, bow_avg 0.869423, bow_greedy 0.831882,    intra_dist1 0.798377, intra_dist2 0.845061, avg_len 13.413260, inter_dist1 0.351644, inter_dist2 0.600009 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.738741, avg precision BLEU 0.351648, F1 0.476485, bow_extrema 0.537353, bow_avg 0.867387, bow_greedy 0.829438,    intra_dist1 0.776428, intra_dist2 0.837336, avg_len 13.209123, inter_dist1 0.347806, inter_dist2 0.596548 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.703897, avg precision BLEU 0.334917, F1 0.453877, bow_extrema 0.535537, bow_avg 0.868632, bow_greedy 0.829390,    intra_dist1 0.767811, intra_dist2 0.848779, avg_len 13.466899, inter_dist1 0.357663, inter_dist2 0.608378 (only 1 ref, not final results)
+Done testing
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Saving models
+Train begins with 1529 batches with 17 left over samples
+Valid begins with 2006 batches with 0 left over samples
+Avg recall BLEU 0.679973, avg precision BLEU 0.340030, F1 0.453354, bow_extrema 0.537382, bow_avg 0.868262, bow_greedy 0.828925,    intra_dist1 0.777291, intra_dist2 0.844637, avg_len 13.353190, inter_dist1 0.363749, inter_dist2 0.619704 (only 1 ref, not final results)
+Done testing
+Saving models

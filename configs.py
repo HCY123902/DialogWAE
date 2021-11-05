@@ -16,7 +16,7 @@ def config_DialogWAE():
 
 # Training Arguments
     'batch_size':32,
-    'epochs':100, # maximum number of epochs
+    'epochs':80, # maximum number of epochs
     'min_epochs':2, # minimum number of epochs to train for
 
     'n_iters_d':5, # number of discriminator iterations in training

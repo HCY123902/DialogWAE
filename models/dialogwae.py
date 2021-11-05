@@ -239,7 +239,11 @@ class DialogWAE(nn.Module):
         mask = dec_target.gt(0) # [(batch_sz*seq_len)]
         masked_target = dec_target.masked_select(mask) 
         output_mask = mask.unsqueeze(1).expand(mask.size(0), self.vocab_size)
-        output = self.decoder(torch.cat((post_z, c),1), None, response[:,:-1], (res_lens-1)) 
+        
+        # Adjusted
+        # output = self.decoder(torch.cat((post_z, c),1), None, response[:,:-1], (res_lens-1)) 
+        output = self.decoder(c, None, response[:,:-1], (res_lens-1))
+        
         flattened_output = output.view(-1, self.vocab_size) 
         masked_output = flattened_output.masked_select(output_mask).view(-1, self.vocab_size)
         lossAE = self.criterion_ce(masked_output/self.temp, masked_target)

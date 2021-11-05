@@ -85,8 +85,11 @@ class DialogWAE(nn.Module):
         ) 
         self.prior_generator.apply(self.init_weights)
                                                                                              
-        self.decoder = Decoder(self.embedder, config['emb_size'], config['n_hidden']+config['z_size'], 
-                               vocab_size, n_layers=1) 
+        # self.decoder = Decoder(self.embedder, config['emb_size'], config['n_hidden']+config['z_size'], 
+        #                        vocab_size, n_layers=1) 
+
+        self.decoder = Decoder(self.embedder, config['emb_size'], config['n_hidden'], 
+                               vocab_size, n_layers=1)
         
         self.discriminator = nn.Sequential(  
             nn.Linear(config['n_hidden']+config['z_size'], config['n_hidden']*2),
@@ -133,9 +136,13 @@ class DialogWAE(nn.Module):
         self.context_encoder.train()
         self.decoder.train()
         c = self.context_encoder(context, context_lens, utt_lens, floors, anchor=anchor)
-        x,_ = self.utt_encoder(response[:,1:], res_lens-1)      
-        z = self.sample_code_post(x, c)
-        output = self.decoder(torch.cat((z, c),1), None, response[:,:-1], (res_lens-1))  
+        # x,_ = self.utt_encoder(response[:,1:], res_lens-1)      
+        # z = self.sample_code_post(x, c)
+
+        # Adjusted
+        # output = self.decoder(torch.cat((z, c),1), None, response[:,:-1], (res_lens-1))
+        output = self.decoder(c, None, response[:,:-1], (res_lens-1))
+
         flattened_output = output.view(-1, self.vocab_size) 
         
         dec_target = response[:,1:].contiguous().view(-1)
@@ -220,13 +227,13 @@ class DialogWAE(nn.Module):
         self.decoder.eval()
         
         c = self.context_encoder(context, context_lens, utt_lens, floors, anchor=anchor)
-        x,_ = self.utt_encoder(response[:,1:], res_lens-1)
-        post_z = self.sample_code_post(x, c)
-        prior_z = self.sample_code_prior(c)
-        errD_post = torch.mean(self.discriminator(torch.cat((post_z, c),1)))
-        errD_prior = torch.mean(self.discriminator(torch.cat((prior_z, c),1)))
-        costD = -(errD_prior - errD_post)
-        costG = -costD 
+        # x,_ = self.utt_encoder(response[:,1:], res_lens-1)
+        # post_z = self.sample_code_post(x, c)
+        # prior_z = self.sample_code_prior(c)
+        # errD_post = torch.mean(self.discriminator(torch.cat((post_z, c),1)))
+        # errD_prior = torch.mean(self.discriminator(torch.cat((prior_z, c),1)))
+        # costD = -(errD_prior - errD_post)
+        # costG = -costD 
         
         dec_target = response[:,1:].contiguous().view(-1)
         mask = dec_target.gt(0) # [(batch_sz*seq_len)]
@@ -236,7 +243,11 @@ class DialogWAE(nn.Module):
         flattened_output = output.view(-1, self.vocab_size) 
         masked_output = flattened_output.masked_select(output_mask).view(-1, self.vocab_size)
         lossAE = self.criterion_ce(masked_output/self.temp, masked_target)
-        return [('valid_loss_AE', lossAE.item()),('valid_loss_G', costG.item()), ('valid_loss_D', costD.item())]
+
+        # Adjusted
+        # return [('valid_loss_AE', lossAE.item()),('valid_loss_G', costG.item()), ('valid_loss_D', costD.item())]
+
+        return [('valid_loss_AE', lossAE.item())]
         
     def sample(self, context, context_lens, utt_lens, floors, repeat, SOS_tok, EOS_tok, anchor=torch.tensor([])):    
         self.context_encoder.eval()
@@ -245,9 +256,15 @@ class DialogWAE(nn.Module):
         # Modified
         c = self.context_encoder(context, context_lens, utt_lens, floors, anchor=anchor)
         c_repeated = c.expand(repeat, -1)
-        prior_z = self.sample_code_prior(c_repeated)    
-        sample_words, sample_lens= self.decoder.sampling(torch.cat((prior_z,c_repeated),1), 
+
+        # Adjusted
+        # prior_z = self.sample_code_prior(c_repeated)    
+        # sample_words, sample_lens= self.decoder.sampling(torch.cat((prior_z,c_repeated),1), 
+        #                                                  None, self.maxlen, SOS_tok, EOS_tok, "greedy")
+
+        sample_words, sample_lens= self.decoder.sampling(c_repeated, 
                                                          None, self.maxlen, SOS_tok, EOS_tok, "greedy") 
+
         return sample_words, sample_lens 
       
     

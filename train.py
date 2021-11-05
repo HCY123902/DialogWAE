@@ -191,22 +191,22 @@ for epoch in range(start_epoch, config['epochs']+1):
         loss_AE = model.train_AE(context, context_lens, utt_lens, floors, response, res_lens, anchor=anchor)
         loss_records.extend(loss_AE)
 
-        loss_G = model.train_G(context, context_lens, utt_lens, floors, response, res_lens, anchor=anchor)
-        loss_records.extend(loss_G)
+        # loss_G = model.train_G(context, context_lens, utt_lens, floors, response, res_lens, anchor=anchor)
+        # loss_records.extend(loss_G)
         
-        for i in range(config['n_iters_d']):# train discriminator/critic
-            loss_D = model.train_D(context, context_lens, utt_lens, floors, response, res_lens, anchor=anchor)  
-            if i==0:
-                loss_records.extend(loss_D)
-            if i==config['n_iters_d']-1:
-                break
-            batch = train_loader.next_batch()
-            if batch is None: # end of epoch
-                break
-            context, context_lens, utt_lens, floors,_,_,_,response,res_lens,_, anchor = batch
-            context, utt_lens = context[:,:,1:], utt_lens-1 # remove the sos token in the context and reduce the context length
-            context, context_lens, utt_lens, floors, response, res_lens, anchor\
-                = gVar(context), gVar(context_lens), gVar(utt_lens), gData(floors), gVar(response), gVar(res_lens), gVar(anchor)                      
+        # for i in range(config['n_iters_d']):# train discriminator/critic
+        #     loss_D = model.train_D(context, context_lens, utt_lens, floors, response, res_lens, anchor=anchor)  
+        #     if i==0:
+        #         loss_records.extend(loss_D)
+        #     if i==config['n_iters_d']-1:
+        #         break
+        #     batch = train_loader.next_batch()
+        #     if batch is None: # end of epoch
+        #         break
+        #     context, context_lens, utt_lens, floors,_,_,_,response,res_lens,_, anchor = batch
+        #     context, utt_lens = context[:,:,1:], utt_lens-1 # remove the sos token in the context and reduce the context length
+        #     context, context_lens, utt_lens, floors, response, res_lens, anchor\
+        #         = gVar(context), gVar(context_lens), gVar(utt_lens), gData(floors), gVar(response), gVar(res_lens), gVar(anchor)                      
                 
                                
         if itr % args.log_every == 0:

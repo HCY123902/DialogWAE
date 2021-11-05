@@ -259,7 +259,10 @@ class DialogWAE(nn.Module):
         
         # Modified
         c = self.context_encoder(context, context_lens, utt_lens, floors, anchor=anchor)
-        c_repeated = c.expand(repeat, -1)
+        
+        # Adjusted
+        # c_repeated = c.expand(repeat, -1)
+        c_repeated = c.expand(repeat, -1).contiguous()
 
         # Adjusted
         # prior_z = self.sample_code_prior(c_repeated)    

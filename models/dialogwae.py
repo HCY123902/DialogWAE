@@ -270,7 +270,7 @@ class DialogWAE(nn.Module):
         #                                                  None, self.maxlen, SOS_tok, EOS_tok, "greedy")
 
         sample_words, sample_lens= self.decoder.sampling(c_repeated, 
-                                                         None, self.maxlen, SOS_tok, EOS_tok, "greedy") 
+                                                         None, self.maxlen, SOS_tok, EOS_tok, "sample") 
 
         return sample_words, sample_lens 
       

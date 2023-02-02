@@ -549,19 +549,19 @@ class DailyDialDataLoader(object):
             min_len = self.data_lens[b_ids[0]]
             assert np.max(all_lens) == max_len
             assert np.min(all_lens) == min_len
-            num_seg = (max_len-self.context_size) // self.step_size
-            if num_seg > 0:
-                cut_start = list(range(0, num_seg*self.step_size, step_size))
-                cut_end = list(range(self.context_size, num_seg*self.step_size+self.context_size, step_size))
-                assert cut_end[-1] < max_len
-                cut_start = [0] * (self.context_size-2) +cut_start # since we give up on the seq training idea
-                cut_end = list(range(2, self.context_size)) + cut_end
-            else:
-                cut_start = [0] * (max_len-2)
-                cut_end = list(range(2, max_len))
+            # num_seg = (max_len-self.context_size) // self.step_size
+            # if num_seg > 0:
+            #     cut_start = list(range(0, num_seg*self.step_size, step_size))
+            #     cut_end = list(range(self.context_size, num_seg*self.step_size+self.context_size, step_size))
+            #     assert cut_end[-1] < max_len
+            #     cut_start = [0] * (self.context_size-2) +cut_start # since we give up on the seq training idea
+            #     cut_end = list(range(2, self.context_size)) + cut_end
+            # else:
+            #     cut_start = [0] * (max_len-2)
+            #     cut_end = list(range(2, max_len))
 
-            new_grids = [(idx, s_id, e_id) for s_id, e_id in zip(cut_start, cut_end) if s_id < min_len-1]
-            # new_grids = [(idx, 0, self.context_size)]
+            # new_grids = [(idx, s_id, e_id) for s_id, e_id in zip(cut_start, cut_end) if s_id < min_len-1]
+            new_grids = [(idx, 0, self.context_size)]
             if intra_shuffle and shuffle:
                 np.random.shuffle(new_grids)
             self.grid_indexes.extend(new_grids)

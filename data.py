@@ -561,6 +561,7 @@ class DailyDialDataLoader(object):
                 cut_end = list(range(2, max_len))
 
             new_grids = [(idx, s_id, e_id) for s_id, e_id in zip(cut_start, cut_end) if s_id < min_len-1]
+            # new_grids = [(idx, 0, self.context_size)]
             if intra_shuffle and shuffle:
                 np.random.shuffle(new_grids)
             self.grid_indexes.extend(new_grids)
